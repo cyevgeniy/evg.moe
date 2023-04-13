@@ -1,0 +1,16 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+theme="basic"
+
+[params]
+	name = "Project 77"
+	description = "Your web heaven"
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 2
+[[menu.main]]
+    name = "Editors"
+    url = "/ed/"
+    weight = 3    
+

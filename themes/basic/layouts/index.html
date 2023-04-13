@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+{{ .Content }}
+
+{{ range .Paginator.Pages }}
+     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+
+<p>
+     {{ .Summary }}
+</p>
+     {{ if .Truncated }}
+     <p><a href="{{ .RelPermalink }}">Read More...</a></p>
+     {{ end }}
+
+{{ end }}
+
+{{ end }}
