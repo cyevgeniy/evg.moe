@@ -14,7 +14,7 @@ In 2014-2015 ( I've found snapshots of [atom.io](https://atom.io)
 website for 2014 year on [waybackmachine](https://web.archive.org/),
 but Wikipedia says that it was released in 2015), Github released Atom ( I personally can't recall when I
  first heard of Atom) - "A hackable editor for the 21st Century".
-It quickly became very popular, because... I don't know why, I've never liked it.
+It quickly became very popular, because... I don't know why, I never liked it.
 Anyway, it's the fact. Atom was a loud name. None of "Best editors for..."  types of
 articles and blog posts hadn't mentioned Atom as a honorable member of their lists.
 It was built using web technologies ( that wasn't so popular as now ),
@@ -50,7 +50,7 @@ In 2019, the next year after acquiring Github, VSCode made a huge jump - from 34
 
 ![](/ed/atom_dead_discussion.png)
 
-By the way, Wunderlist service ( a todo app) was shut down the same way - it was bought by
+By the way, Wunderlist service ( a todo app) was shut down the same way - it [was bought](https://techcrunch.com/2019/12/09/microsoft-to-finally-shut-down-to-do-list-app-wunderlist-on-may-6-2020/) by
 Microsoft and later closed in favor of Microsoft todo.
 
 ## Sunset

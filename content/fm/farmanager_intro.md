@@ -6,6 +6,8 @@ draft: false
 
 Far manager is a terminal-based file manager for Windows.
 
+<!--more-->
+
 ![Far manager screen](/fm/far_screen_1.png)
 
 ## Links

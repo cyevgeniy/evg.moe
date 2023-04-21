@@ -1,9 +1,8 @@
 # Content plan
 
 - Use libreoffice for quick pdf creation
-- Emacs: intro
-- Emacs: autoinstall packages on startup
-- Atom: is dead
++ Emacs: autoinstall packages on startup
++ Atom: is dead (the "power" of open-source)
 - Pulsar: intro
 - Vim: links to useful resources
 - Rebinding tutorial (Capslock to ctrl on Windows, Linux)
@@ -13,5 +12,11 @@
 - nnn file manager( GREAT thing )
 - Far manager. Add commands and menus for quick access
 - Syntax highlighting (long post)
-- Why sublime is a very good text editor.
+- Static site generators (global theme)
+- Static site generators history (first website, wysiwyg editors for html, CMS, Jekyll, boom of the SSG)
+- Let's create a site as it's 90s ( basic tags, no fancy media queries, using iframe for header navigation)
+- Why sublime text is a very good text editor.
+- How to turn on spell checking in sublime text.
+- Keyboard 101 help for sublime text
+- Sublime text essential plugins
  

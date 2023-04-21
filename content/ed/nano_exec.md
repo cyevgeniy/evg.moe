@@ -7,6 +7,8 @@ draft: false
 In nano, it's trivial to execute command and paste command's output to the
 current buffer. That's what `Ctrl-t` does.
 
+<!--more-->
+
 So, for example, you want to insert list of files with specified name. you
 can do this in a such way:
 
