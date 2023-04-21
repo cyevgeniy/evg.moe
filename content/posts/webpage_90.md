@@ -1,5 +1,5 @@
 ---
-title: "Let's create a site like today is 90s"
+title: "Let's create a site like we're in 90s"
 date: 2023-04-13T23:51:11+03:00
 draft: false
 ---
@@ -275,7 +275,7 @@ blog
 ```
 
 
-Skull picture is for the site's name - so cool! Now we have to replace all occurences of `<h1> The Web Heaven </h1>` with the `<h1><img src="./scull.gif"> The Web Heaven </h1>`. By the way, we placed image inside the `h1` tag, because otherwise heading is moved to the next line. This is how our main page looks now:
+Skull picture is for the site's name - so cool! Now we have to replace all occurrences of `<h1> The Web Heaven </h1>` with the `<h1><img src="./scull.gif"> The Web Heaven </h1>`. By the way, we placed image inside the `h1` tag, because otherwise heading is moved to the next line. This is how our main page looks now:
 
 ![](/posts/web90/webheaven_6.png)
 
