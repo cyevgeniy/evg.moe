@@ -52,6 +52,7 @@ You can move between layout windows with `Ctrl` + `<number>` hotkeys.
 - `Ctrl` - `Shift` - `arrow up/arrow down` - move current line up/down
 - `Ctrl` - `c` - copy whole line
 - `Ctrl` - `x` - cut whole line
+- `Ctrl` - `Shift` - `arrow up/down` - move line up/down
 
 ## How to install packages (plugins)
 
@@ -81,3 +82,15 @@ of the current word. It works this way:
 
 This is useful when you want, for example, delete or replace some occurances
 of a word.
+
+## Working with code
+
+These commands may be useful for programmers.
+
+- `Ctrl` - `m` - move between brackets. Works even if the cursor
+  is placed in the middle of text between them.
+- `Ctrl` - `Shift` - `m` - select text between brackets
+- `Ctrl` - `g` - go to line
+- `Ctrl` - `;` - open dialog with all words in the current document.
+  Start typing, then select required word with `Enter`. Then you can
+  move to the next occurance of the word with `F3`
