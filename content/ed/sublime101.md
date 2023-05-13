@@ -49,10 +49,10 @@ You can move between layout windows with `Ctrl` + `<number>` hotkeys.
 
 ## Line manipulation
 
-- `Ctrl` - `Shift` - `arrow up/arrow down` - move current line up/down
-- `Ctrl` - `c` - copy whole line
-- `Ctrl` - `x` - cut whole line
-- `Ctrl` - `Shift` - `arrow up/down` - move line up/down
+- `Ctrl` - `Shift` - `arrow up/arrow down` - move the current line up/down
+- `Ctrl` - `c` - copy the whole line
+- `Ctrl` - `x` - cut the whole line
+- `Ctrl` - `Shift` - `arrow up/down` - move the line up/down
 
 ## How to install packages (plugins)
 
@@ -61,7 +61,7 @@ manager.
 
 1. Open control palette (`Ctrl` - `Shift` - `p`)
 2. Type "Install package control", press enter
-3. When package control will be installed, open control palette and
+3. When package control is installed, open control palette and
    type "Install package" -  press enter.
 4. Then start typing package name, for example "Color scheme". Sublime Text
    will show related packages.
