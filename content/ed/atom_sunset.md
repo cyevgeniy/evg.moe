@@ -55,7 +55,7 @@ Microsoft and later closed in favor of Microsoft todo.
 
 ## Sunset
 
-In the winter of 2022, Github published a blog post, where they
+In the summer of 2022, Github published a blog post, where they
 announced that they're sunsetting Atom.
 
 ![Atom editor sunset](/ed/atom_sunset.png)
