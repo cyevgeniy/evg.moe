@@ -10,6 +10,10 @@ one is about how we can use it for form validation in Vue.
 
 <!--more-->
 
+## Source code
+
+[Download final source code](/vue-zod-validation.zip).
+
 ## Zod
 
 [Zod](https://zod.dev) is a javascript library for data validation.
