@@ -1,7 +1,7 @@
 ---
 title: "My Workflowy review"
 date: 2023-05-16T22:47:11+03:00
-draft: true
+draft: false
 ---
 
 In this post I'll tell about my experience with Workflowy - 
