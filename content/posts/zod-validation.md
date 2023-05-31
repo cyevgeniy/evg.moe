@@ -34,7 +34,7 @@ controls are not bounded to a javascript data structure(s).
 
 To validate something with zod, you first need to create a
 _validation schema_ - a special object that will parse
-data being validated.
+the data.
 
 ```
 import {z} from "zod";
@@ -108,8 +108,8 @@ these fields:
 -   City (required, max 100 characters)
 -   Work email (by default has the same value as `Email`)
 
-In this form, work email field will be hidden by default, and
-"Same as the main email" checkbox will hide/show "Work email" field.
+In this form, the field with work email will be hidden by default, and
+a "Same as the main email" checkbox will hide/show it.
 If it's visible, it's required. If it's not visible, it's not required, because
 it has the same value as the "Email" field.
 
@@ -270,8 +270,9 @@ the value of the `formData` variable:
 
 Our form now accepts all possible string values, without any
 restrictions. It's time to add validation and tell the user
-what fields were filled incorrectly. Let's add error messages the
-input fields:
+what fields were filled are incorrect. Let's add error messages to the
+input fields (you can check out `input` css class in the full source code
+at the end of the post):
 
 ```
 <div class="input">
@@ -285,9 +286,9 @@ Now each of our fields has an error label:
 
 ![Form screen](/img/vue-zod-3.png)
 
-What we want now is to validate all fields when a user clicks
-the "Submit" button and show corresponding error messages for
-all invalid fields. First of all, we need a validation schema:
+What we want now is to validate all fields and show corresponding error messages for
+all invalid fields when a user clicks
+the "Submit" button. First of all, we need a validation schema:
 
 ```
 const personalSchema = z.object({
@@ -326,7 +327,7 @@ workEmail: z.string().optional()
   const emailRegex =
   /^([A-Z0-9_+-]+\.?)*[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i;
 
-  return validationResult.success ? undefined : validationResult.error.format()
+  return val.sameEmail || (val.workEmail ? emailRegex.test(val.workEmail) : false)
 }, {message: "Invalid email", path: ["workEmail"]})
 ```
 
@@ -337,21 +338,20 @@ In zod, for validations that require a context (and we need one here, because
 the result of validation relies on **another field's value**), the [`refine()`](https://zod.dev/?id=refine)
 method is used. Its first argument is a function that accepts the whole schema
 as a parameter, and _the truthiness of its result_ leads
-to passing the validation. The second parameter is settings - we set an error message
-and error path. 
+to passing the validation. The second parameter is settings - we set the error message
+and and the error's path. 
+
+This line returns `true` if the `sameFlag` is true, or returns the result
+of email validation, which is done by regular expression. I've grabbed this regex
+from zod's source code, by the way:
 
 ```
-return validationResult.success ? undefined : validationResult.error.format()
+return val.sameEmail || (val.workEmail ? emailRegex.test(val.workEmail) : false)
 ```
-
-This line returns true if the `sameFlag` is true, or returns the result
-of email validation, which is done with regular expression (I've grabbed this regex
-from zod's source code):
 
 ### Run validation
 
 First of all, we need zod itself:
-
 
 ```
 npm i zod
@@ -366,7 +366,7 @@ variable that will hold either the submit button was pressed or not:
 const isValidationPerformed = shallowRef(false)
 ```
 
-Then, we create a computed that returns the list of validation errors:
+Then, we create a computed variable that returns the list of validation errors:
 
 ```
 const errors = computed(() => {
@@ -453,7 +453,7 @@ But if we clear the field, no any error message will be shown:
 ![Form screenshot](/img/vue-zod-6.png)
 
 That's because now our `formData.username` contains an
-_empty string_, not _undefined_ value. And this situation
+_empty string_, not an _undefined_ value, and this situation
 fully satisfies the validation condition (it's a string and
 its length don't overflow the limit). If we want
 to forbid empty and space-only strings, we may use `trim()` and `min()`
@@ -483,7 +483,7 @@ Now everything works fine:
 
 ![Form validation screenshot](/img/vue-zod-7.png)
 
-### The whole code
+### The full code
 
 ```
 <script setup lang="ts">
