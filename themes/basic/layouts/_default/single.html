@@ -6,8 +6,15 @@
     	<hr>
         <div id="content">
         	<h1> {{ .Title}} </h1>
-
             <p><i>Created: {{ .Params.Publishdate.Format "2006-01-02 15:04:05"}}</i></p>
+
+            {{ if .Params.toc }}
+                <b>Table of Contents</b>:
+
+                {{.TableOfContents}}
+            {{ end}}
+
+
 
         	{{ .Content }}
         </div>

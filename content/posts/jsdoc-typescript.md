@@ -2,6 +2,7 @@
 title: "Using JsDoc for typing"
 date: 2023-06-07T22:35:19+03:00
 draft: false
+toc: true
 ---
 
 Typescript is a new standard in the Javascript world,

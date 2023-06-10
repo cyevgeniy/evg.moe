@@ -2,6 +2,7 @@
 title: "Vue: input data validation with zod"
 date: 2023-05-25T22:52:02+03:00
 draft: false
+toc: true
 ---
 
 This post consists from two parts - the first one is
