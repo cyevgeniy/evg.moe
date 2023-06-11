@@ -1,7 +1,7 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 theme="basic"
-
+paginate=100
 [params]
 	name = "Project 77"
 	description = "Your web heaven"
