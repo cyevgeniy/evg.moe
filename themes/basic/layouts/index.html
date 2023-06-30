@@ -5,6 +5,15 @@
 {{ range .Paginator.Pages }}
      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
+{{ if .Params.featured_image }}
+<div>
+     <a href="{{ .RelPermalink }}">
+          <img src="{{ .Params.featured_image }}"/>
+     </a>
+</div>
+{{ end }}
+
+
 <p>
      {{ .Summary }}
 </p>
