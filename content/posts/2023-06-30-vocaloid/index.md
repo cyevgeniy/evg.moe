@@ -11,7 +11,7 @@ with a software.
 <!--more-->
 
  It's named so because
-of the [Vocalid](https://www.vocaloid.com/en/) software,
+of the [Vocaloid](https://www.vocaloid.com/en/) software,
 made by Yamaha, which synthesizes singing voices.
 
 
@@ -20,7 +20,7 @@ made by Yamaha, which synthesizes singing voices.
 
 [Hatsune Miku](https://ec.crypton.co.jp/pages/prod/virtualsinger/cv01_us), 
 [Wikipedia - Hatsune Miku](https://en.wikipedia.org/wiki/Hatsune_Miku)
-is a character for a voice bank for vocalid, released in 2007.
+is a character for a voice bank for Vocaloid, released in 2007.
 
 ![Hatsune Miku](/posts/2023-06-30-vocaloid/vocaloid_miku.png)
 
