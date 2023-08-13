@@ -61,7 +61,49 @@ function onInput(e: Event) {
 </template>
 ```
 
-TODO: explain by small parts
+Now I'll explain what we did in the code above.
+Our component have only one single input element for now:
+
+```
+<input
+  :value="modelValue"
+  type="text"
+  @input="onInput"
+>
+```
+
+We bind component's `modelValue` to the input's value,
+so everytime `modelValue` is changed, input's displayed
+text will be in sync with it. Besides this, we need to
+update modelValue when text in the input field is changed
+by the user. Since component's props are immutable, we 
+can't directly update `modelValue`. Instead, we emit
+`update:modelValue` event with the text in the input field.
+This code is iside `onInput` function:
+
+```
+function onInput(e: Event) {
+  const target = e.target as HTMLInputElement
+
+  emit('update:modelValue', target.value)
+}
+```
+
+To be able to emit events, we should declare each of
+them: 
+
+```
+const emit = defineEmits<{
+  (evt: 'update:modelValue', val: string): void
+}>()
+```
+
+**There are important things you should understand now**:
+
+1. You cannot modify component's props
+2. When you use a component with `v-model="val"` pattern, it's actually
+   expanded by Vue to the `:modelValue="val"` and `@update:modelValue="e => val = e"`
+
 
 *App.vue*:
 
@@ -102,3 +144,11 @@ yet, and then you make the testcase pass by implementig the feature in the compo
 ### Install vue-test-utils and vitest
 
 ### First test
+
+### Label
+
+### Error label
+
+### Disabled state
+
+### modelValue update
