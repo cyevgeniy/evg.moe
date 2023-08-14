@@ -72,6 +72,24 @@ Our component have only one single input element for now:
 >
 ```
 
+What we want is to use our BaseInput like this:
+
+```
+const inputText = ref('')
+...
+<BaseInput
+  v-model="inputText"
+/>
+```
+
+So when we change the value of `inputText` variable,
+it will appear in the input field, and when the input's
+value is changed, the `inputText` is synced with typed text.
+
+To do so, we need to know how `v-model` directive works in Vue.
+There'is a [dedicated page](https://vuejs.org/guide/components/v-model.html)
+in the docs for this.
+
 We bind component's `modelValue` to the input's value,
 so everytime `modelValue` is changed, input's displayed
 text will be in sync with it. Besides this, we need to
@@ -127,13 +145,164 @@ watchEffect(() => {
 </template>
 ```
 
-TODO: explain by small parts
+This code is pretty straightforward - we import required dependencies,
+creating a ref that will serve as a `v-model`, and use 
+`watchEffect` for demonstration of how our v-model is being changed - you
+can open a dev console and see the logs of `text`'s values.
 
 ## Label and Error label
 
+Now let's add a field label, and a label for the error message.
+We will pass them as props, so first thing we can do is to declare them:
+
+```
+withDefaults(defineProps<{
+  modelValue?: string
+  label?: string
+  error?: string
+}>(), {
+  modelValue: ''
+})
+```
+
+We made them optional, so we have to keep in mind that
+if they're optional, we should correctly handle the cases when
+a value for one of these fields isn't provided. For labels in an
+input component, it's ok just to hide them:
+
+```
+<template>
+  <div>
+    <span
+      v-show="label"
+      class="block text-sm mb-1"
+    >
+      {{ label }}
+    </span>
+    <input
+      :value="modelValue"
+      type="text"
+      @input="onInput"
+    >
+    <span
+      v-show="error"
+      class="block text-pink-500 text-sm mt-1"
+    >
+      {{ error }}
+    </span>
+  </div>
+</template>
+```
+
+Please note how we've added a gaps between an input and labels - top label has
+`margin-bottom` property, and bottom label has the `margin-top` property, so when
+one of the labels is hidden, the gap disappeares. If we had applied `margin-top`
+and `margin-bottom` properties to the input element itself, the gaps still would have
+been in the component. We also used a *block* class to make our spans act like a
+block DOM node. Another possible solution here is to use flexbox.
+
 ## Disabled state
 
+To make an input field disabled, we'll just set corresponding html attribute
+in the input field:
+
+
+```
+withDefaults(defineProps<{
+  modelValue?: string
+  label?: string
+  error?: string
+  disabled?: boolean
+}>(), {
+  modelValue: '',
+  disabled: false,
+})
+```
+
+```
+<input
+  :value="modelValue"
+  type="text"
+  :disabled="disabled"
+  @input="onInput"
+>
+```
+
+## Add some styling
+
+Let's make input field more attractive:
+
+```
+<input
+  class="focus:ring-2 focus:ring-blue-300
+    focus:outline-none border border-slate-200
+    rounded"
+  :value="modelValue"
+  type="text"
+  :disabled="disabled"
+  @input="onInput"
+>
+```
+
+Utility classes were splitted into multiple lines for the sake of readability on this website. Usually you
+write these classes in a single line.
+
+Now our component look like this:
+
+![Base input component](base-input-1.png)
+
 ## Icons
+
+Now we're going to add support for icons inside our input component.
+Those icons will help a user to recognize the purpose of the field. 
+There're a few possible ways to add icons, but we will use slots.
+Our icon should be inside an input field, and we'll use absolute
+positioning for this. Since part of the input field will be
+overlapped with the icon, we need to "shift" the place where
+typing starts if the slot for the icon is not empty, and remove
+this shift when icon is not provided.
+
+This is modified version of our input field. It's a replacement for
+`<input...` tag:
+
+```
+<div class="relative">
+  <input
+    class="focus:ring-2 focus:ring-blue-300
+      focus:outline-none border border-slate-200
+      rounded text-sm"
+    :class="[$slots.prepend ? 'pl-6' : '']"
+    :value="modelValue"
+    type="text"
+    :disabled="disabled"
+    @input="onInput"
+  >
+  <div class="absolute left-0 top-0 h-full p-1 flex items-center justify-center">
+    <div class="h-4 w-4">
+      <slot name="prepend" />
+    </div>
+  </div>
+</div>
+```
+
+Let's break it down.
+
+First of all, we wrapped our input tag in a `div` which has relative
+positioning. Inside this container, we have an input field and another
+one div block, but this time with absolute positioning. This absolute
+block has `left-0`, `top-0` and `h-full` classes. It means that the top side
+of this block will be at the same position as the top side of its parent with
+relative positioning. Same for its left side. `h-full` class stretches block's
+height to the 100% of the parent. If you don't undestand, I've got you covered,
+here's an illustration of how it's work:
+
+![Explanation of absolute positioning](input-icon-explanation.png)
+
+Icon should be verticaly centered inside the input field, and it's the same
+as center an icon inside the absolute positioned block (blue). For this,
+we turned this div into a flexbox container and added another one div with fixed height and width inside.
+This div is centered vertically, and it is the container for our icon, which ideally should
+have the same width and height.
 
 ## Testing
 
