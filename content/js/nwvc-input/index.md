@@ -299,20 +299,138 @@ here's an illustration of how it's work:
 ![Explanation of absolute positioning](input-icon-explanation.png)
 
 Icon should be verticaly centered inside the input field, and it's the same
-as center an icon inside the absolute positioned block (blue). For this,
+as to center an icon inside the absolute positioned block (blue). For this,
 we turned this div into a flexbox container and added another one div with fixed height and width inside.
 This div is centered vertically, and it is the container for our icon, which ideally should
-have the same width and height.
+have the same width and height. Inside this div we've added a named slot.
+
+Now let's look closer at the input element. Besides static CSS classes, we use
+this one: `:class="[$slots.prepend ? 'pl-6' : '']"`. This class adds left padding
+**when prepend icon is presented**, so text in the input won't be overlapped with
+an icon.
+
+This is how we can add an icon:
+
+```
+<BaseInput label="Real name" error="max length is 20" v-model="text" class="m-2">
+      <template v-slot:prepend>
+        <svg
+          class="w-4 h-4 text-gray-500 dark:text-gray-400"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 16"
+        >
+          <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+          <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+        </svg>
+      </template>
+    </BaseInput>
+```
+
+And this is how our component look now:
+
+![base input component](base-input-2.png)
+
+*Yes, I know, I used a wrong icon, but it's not so important here.*
 
 ## Testing
 
 Usually tests are being written in parallel with component implementation - you
 write test for a specific testcase, it falls because the feature isn't implemented
 yet, and then you make the testcase pass by implementig the feature in the component.
+We'll use [vitest](https://vitest.dev) and [vue-test-utils](https://test-utils.vuejs.org)
+for testing. 
 
 ### Install vue-test-utils and vitest
 
+Install vue-test-utils:
+
+```
+npm install --save-dev @vue/test-utils
+```
+
+And vitest:
+
+```
+npm install -D vitest
+```
+
 ### First test
+
+Usually tests have `.spec.ts` or `.test.ts` extension, while the filename
+is the same as the filename of the tested component/module. We will use `.spec.ts`.
+
+First, create the `BaseInput.spec.ts` file with this content:
+
+```
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import BaseInput from './BaseInput.vue'
+
+describe('BaseInput component', () => {
+  it('is rendered', () => {
+    const wrapper = mount(BaseInput)
+
+
+    expect(wrapper.find('[data-test="input-wrapper"]').exists()).toBe(true)
+  })
+})
+```
+
+The most interesting part here is how we're trying to check whether our component is
+rendered. We search a DOM node by "data-test" attribute. Because we didn't
+add any "data" attributes to the component's layout, we need to fix that:
+
+*BaseInput.vue*:
+
+```
+<template>
+  <div data-test="input-wrapper">
+```
+
+*Wrapper has [a lot](https://test-utils.vuejs.org/api/#wrapper-methods) of
+methods which may be useful for testing. It's  also highly recommended to
+go through [a crash course](https://test-utils.vuejs.org/guide/essentials/a-crash-course.html)
+to get familiar with main concepts of testing with vue test utils.*
+
+
+Now, it's time to run our test. All we need to do is just run
+vitest:
+
+```
+npx vitest
+```
+
+Sadly, vitest throws an "ReferenceError: document is not defined" error. 
+To be able to test components, vitest should somehow emulate browser's
+behaviour, and we can choose from [a few possible options](https://vitest.dev/guide/environment.html#test-environment).
+We'll use "jsdom" package, so our `vite.config.ts` should be like this:
+
+```
+import { defineConfig } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [
+    Vue(),
+  ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
+})
+```
+
+After execution of the `vitest` command we will be promted to
+install jsdom package. Press "y" and enjoy our first passing test!
+
+![First passed test screenshot](test-1.png)
+
+
+
+Here we imported required dependencies and created a stub for our first test
+case. This test checks that our component just rendered, and nothing more.
 
 ### Label
 
