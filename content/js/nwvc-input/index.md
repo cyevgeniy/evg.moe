@@ -9,19 +9,27 @@ toc: true
 
 We will use these packages:
 
-- Vite
-- Vue 3
-- Tailwind CSS
+- [Vite](https://vitejs.dev/)
+- [Vue 3](https://vuejs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vitest](https://vitest.dev)
+- [Vue test utils](https://test-utils.vuejs.org)
 
-You can create a starter project with Vite easily,
-checkout the docs.
+You can create a starter project with Vite easily:
+
+```
+npm create vite@latest base-input-component -- --template vue-tsc
+```
+
+If you have any troubles, checkout the "Getting started" section in the
+[docs](https://vitejs.dev/guide/).
 
 
 ## What we want to create
 
 We're going to create a simple component which will wrap
-`input` tag and provide some useful features that we almost
-always want from the input field in any form. It will contain:
+input element and provide some useful features that we almost
+always want from the input field in any form. It will have:
 
 - A label that will be displayed above the input field
 - An input element itself
@@ -29,7 +37,8 @@ always want from the input field in any form. It will contain:
 
 ## Base wrapper
 
-First of all, let's just wrap input element in a component.
+First of all, let's just wrap an input element in a component.
+Create a `BaseInput.vue` file in the `components` directory.
 
 *BaseInput.vue*:
 
@@ -61,7 +70,8 @@ function onInput(e: Event) {
 </template>
 ```
 
-Now I'll explain what we did in the code above.
+Now I'll explain what we have donein the code above.
+
 Our component have only one single input element for now:
 
 ```
@@ -82,19 +92,19 @@ const inputText = ref('')
 />
 ```
 
-So when we change the value of `inputText` variable,
-it will appear in the input field, and when the input's
-value is changed, the `inputText` is synced with typed text.
+So when we change the value of the `inputText` variable,
+the input field reflects to them, and when the input's
+value is changed, the `inputText` variable is synced with the typed text.
 
 To do so, we need to know how `v-model` directive works in Vue.
 There'is a [dedicated page](https://vuejs.org/guide/components/v-model.html)
 in the docs for this.
 
 We bind component's `modelValue` to the input's value,
-so everytime `modelValue` is changed, input's displayed
+so everytime when `modelValue` is changed, input's 
 text will be in sync with it. Besides this, we need to
-update modelValue when text in the input field is changed
-by the user. Since component's props are immutable, we 
+update `modelValue` when the text in the input field is changed
+by the user. Since **component's props are immutable**, we 
 can't directly update `modelValue`. Instead, we emit
 `update:modelValue` event with the text in the input field.
 This code is iside `onInput` function:
@@ -428,14 +438,110 @@ install jsdom package. Press "y" and enjoy our first passing test!
 ![First passed test screenshot](test-1.png)
 
 
-
-Here we imported required dependencies and created a stub for our first test
-case. This test checks that our component just rendered, and nothing more.
-
 ### Label
+
+When the label is empty, it should be hidden:
+
+```
+it('hides the label if it is empty', () => {
+  const wrapper = mount(BaseInput, {
+    props: {
+      label: '',
+    }
+  })
+
+
+  expect(wrapper.find('[data-test="input-label"]').isVisible()).toBe(false)
+})
+```
+
+**ATTENTION!!!** We hide input label with `v-show` directive, which adds
+`display:none` CSS style to the element, but it's still exists in the DOM tree.
+Therefore, we use `isVisible` method, and not `exists`.
+
 
 ### Error label
 
+Error label should be hidden if not provided:
+
+```
+it('Error label should be hidden when not provided', () => {
+  const wrapper = mount(BaseInput)
+
+
+  expect(wrapper.find('[data-test="input-error"]').isVisible()).toBe(false)
+})
+```
+
+Error label is visible when the `props.error` is provided:
+
+```
+it('Error label is visible when provided', () => {
+  const wrapper = mount(BaseInput, {
+    props: {
+      error: 'error label',
+    }
+  })
+
+
+  expect(wrapper.find('[data-test="input-error"]').text()).toBe('error label')
+})
+```
+
 ### Disabled state
 
+When our input component is disabled, it shouldn't update
+our modelValue and also the input element must have a disabled attribute.
+
+```
+it('is disabled when props.disabled is true', async () => {
+  const wrapper = mount(BaseInput, {
+    props: {
+      modelValue: '',
+      'onUpdate:modelValue': (e) => wrapper.setProps({ modelValue: e }),
+      disabled: true,
+    }
+  })
+
+  await wrapper.get('[data-test="input-field"]').setValue('text')
+  expect(wrapper.props('modelValue')).toBe('')
+})
+```
+
 ### modelValue update
+
+V-model's value is displayed in the input field from the start:
+
+```
+it('set input text as in modelValue', () => {
+  const wrapper = mount(BaseInput, {
+    props: {
+      modelValue: 'text',
+    }
+  })
+
+  wrapper.find('[data-test="input-field"]').element
+  expect((wrapper.find('[data-test="input-field"]').element as HTMLInputElement).value).toBe('text')
+})
+```
+
+Binded `v-model` is updated when text is changed in the
+input field:
+
+```
+it('modelValue is updated with input text', async () => {
+  const wrapper = mount(BaseInput, {
+    props: {
+      modelValue: '',
+      'onUpdate:modelValue': (e) => wrapper.setProps({ modelValue: e })
+    }
+  })
+
+  await wrapper.get('[data-test="input-field"]').setValue('text')
+  expect(wrapper.props('modelValue')).toBe('text')
+})
+```
+
+Important thing here is that we should wait for `setValue` execution,
+so DOM is updated before our next assertions.
+Read more [here](https://test-utils.vuejs.org/api/#setvalue).

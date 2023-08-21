@@ -6,3 +6,4 @@ draft: true
 
 - Sublime lsp - LSP support
 - WordingStatus - Shows count of words, characters and other useful statistics for a document
+- Create files and directories with a keyboard shortcuts
