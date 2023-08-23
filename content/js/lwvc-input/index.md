@@ -3,7 +3,12 @@ title: "Let's write a Vue component - Input"
 date: 2023-08-10T21:52:43+03:00
 draft: true
 toc: true
+featured_image: /js/lwvc-input/base-input-2.png
 ---
+
+In this post, we'll create an input component for vue 3.
+
+<!--more-->
 
 ## Stack
 
@@ -24,12 +29,43 @@ npm create vite@latest base-input-component -- --template vue-tsc
 If you have any troubles, checkout the "Getting started" section in the
 [docs](https://vitejs.dev/guide/).
 
+Then, install TailwindCSS:
+
+```
+> npm install -D tailwindcss postcss autoprefixer
+> npx tailwindcss init -p
+```
+
+Vite starter projects come with the `style.css` file.
+Replace its content with this lines:
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+And finally, update `tailwind.config.json` file:
+
+```
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 ## What we want to create
 
 We're going to create a simple component which will wrap
 an input element and provide some useful features that we almost
-always want from the input field in any form, particulary:
+always want from an input field in any form, particulary:
 
 - A label that will be displayed above the input field
 - An input element itself
@@ -159,7 +195,7 @@ watchEffect(() => {
 This code is pretty straightforward - we're  importing required dependencies,
 creating a ref that will serve as a `v-model`, and using
 `watchEffect` for demonstration of how our `v-model` is being changed - you
-can open a dev console and see the logs of `text`'s values.
+can open a dev console and to see the logs of `text`'s values.
 
 ## Label and Error label
 
@@ -245,7 +281,7 @@ Let's make input field more attractive:
 
 ```
 <input
-  class="focus:ring-2 focus:ring-blue-300
+  class="p-1 focus:ring-2 focus:ring-blue-300
     focus:outline-none border border-slate-200
     rounded"
   :value="modelValue"
@@ -258,20 +294,33 @@ Let's make input field more attractive:
 Utility classes were splitted into multiple lines for the sake of readability on this website. Usually you
 write these classes in a single line.
 
-Now our component look like this:
+We can display a label and an error:
+
+*App.vue*:
+
+```
+...
+<BaseInput
+  v-model="text"
+  label="Real name"
+  error="max length is 20"
+/>
+...
+```
+
+And the component look like this:
 
 ![Base input component](base-input-1.png)
 
 ## Icons
 
-Now we're going to add support for icons inside our input component.
-Those icons will help a user to recognize the purpose of the field.
-There're a few possible ways to add icons, but we will use slots.
-Our icon should be inside an input field, and we'll use absolute
-positioning for this. Since part of the input field will be
-overlapped with the icon, we need to "shift" the place where
+Now we need to add support for icons inside our input.
+We will use slots for this task.
+Since part of the input field will be
+overlapped with the icon (because we will use absolute positioning), we
+ need to "shift" the place where
 typing starts if the slot for the icon is not empty, and remove
-this shift when icon is not provided.
+this shift when the icon was not provided.
 
 This is the modified version of our input field. It's a replacement for
 `<input...` tag:
@@ -309,7 +358,7 @@ here's an illustration of how it works:
 
 ![Explanation of absolute positioning](input-icon-explanation.png)
 
-Now let's look closer at the input element. Besides static CSS classes, we use
+Now let's take a  closer look at the input element. Besides static CSS classes, we use
 this one: `:class="[$slots.prepend ? 'pl-6' : '']"`. This class adds left padding
 **when prepend icon is presented**, so text in the input won't be overlapped with
 an icon.
@@ -342,7 +391,7 @@ And this is how our component look now:
 ## Testing
 
 Usually tests are being written in parallel with component implementation - you
-write test for a specific testcase, it falls because the feature isn't implemented
+write test for a specific testcase, it fails because the feature isn't implemented
 yet, and then you make the testcase pass by implementig the feature in the component.
 We'll use [vitest](https://vitest.dev) and [vue-test-utils](https://test-utils.vuejs.org)
 for testing.
@@ -538,6 +587,6 @@ it('modelValue is updated with input text', async () => {
 })
 ```
 
-Important thing here is that we should wait for `setValue` execution,
-so DOM is updated before our next assertions.
+Important thing here is that we should wait for end of `setValue` execution,
+so DOM will be updated before our next assertions.
 Read more [here](https://test-utils.vuejs.org/api/#setvalue).
