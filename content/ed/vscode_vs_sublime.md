@@ -10,7 +10,7 @@ I found a few things that VSCode does better than Sublime Text.
 
 ## Creating new files from the sidebar
 
-When creating a new file in the sidebar file navigator, VSCode
+When you create a new file in the sidebar file navigator, VSCode
 asks for a filename first, and only then opens the file itself.
 In Sublime Text, after clicking on "New File" context menu item,
 new tab is opened, and you type a filename only when saving.
