@@ -457,6 +457,23 @@ vitest:
 npx vitest
 ```
 
+Result:
+
+```
+⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯
+
+FAIL  src/components/BaseInput.spec.ts > BaseInput component > is rendered
+ReferenceError: document is not defined
+ ❯ Module.mount node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.mjs:8305:14
+ ❯ src/components/BaseInput.spec.ts:7:21
+      5| describe('BaseInput component', () => {
+      6|   it('is rendered', () => {
+      7|     const wrapper = mount(BaseInput)
+       |                     ^
+      8|
+      9|
+```
+
 Sadly, vitest throws an "ReferenceError: document is not defined" error.
 To be able to test components, vitest should somehow emulate browser's
 behaviour, and we can choose from [a few possible options](https://vitest.dev/guide/environment.html#test-environment).
@@ -590,3 +607,7 @@ it('modelValue is updated with input text', async () => {
 Important thing here is that we should wait for end of `setValue` execution,
 so DOM will be updated before our next assertions.
 Read more [here](https://test-utils.vuejs.org/api/#setvalue).
+
+All of our tests passed, good job!
+
+![test result screenshot](test-2.png)
