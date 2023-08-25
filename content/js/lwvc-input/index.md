@@ -37,7 +37,7 @@ Then, install TailwindCSS:
 ```
 
 Vite starter projects come with the `style.css` file.
-Replace its content with this lines:
+Replace its content with these lines:
 
 ```
 @tailwind base;
@@ -129,7 +129,7 @@ const inputText = ref('')
 ```
 
 So when we change the value of the `inputText` variable,
-the input field reflects to them, and when the input's
+the text in an input field also changes, and when the input's
 value is changed, the `inputText` variable is synced with the typed text.
 
 To do so, we need to know how `v-model` directive works in Vue.
@@ -144,7 +144,7 @@ by the user. Since **component's props are immutable**, we
 can't directly update `modelValue`. Instead, we emit
 `update:modelValue` event with the text in the input field.
 
-This code is iside `onInput` function:
+It's all done in the `onInput` function:
 
 ```
 function onInput(e: Event) {
