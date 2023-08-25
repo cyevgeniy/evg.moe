@@ -518,7 +518,7 @@ it('hides the label if it is empty', () => {
 ```
 
 **ATTENTION!!!** We hide input label with `v-show` directive, which adds
-`display:none` CSS style to the element, but it's still exists in the DOM tree.
+`display:none` CSS style to the element, but it still exists in the DOM tree.
 Therefore, we use `isVisible` method, and not `exists`.
 
 
