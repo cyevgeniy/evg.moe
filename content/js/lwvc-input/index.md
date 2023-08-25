@@ -69,7 +69,7 @@ always want from an input field in any form, particulary:
 
 - A label that will be displayed above the input field
 - An input element itself
-- An error label, so we can display error message for the field
+- An error label, so we can display an error message for the field
 
 ## Base wrapper
 
