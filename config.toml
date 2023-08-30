@@ -12,5 +12,8 @@ paginate=100
 [[menu.main]]
     name = "Editors"
     url = "/ed/"
-    weight = 3    
-
+    weight = 3
+[[menu.main]]
+    name = "Rss"
+    url = "/index.xml"
+    weight =4
