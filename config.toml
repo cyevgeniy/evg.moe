@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://proj11.com'
 languageCode = 'en-us'
 theme="basic"
 paginate=100
