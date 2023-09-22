@@ -2,7 +2,7 @@
 title: "Vocaloid music genre"
 date: 2023-06-29T08:38:28+03:00
 draft: false
-featured_image: /posts/2023-06-30-vocaloid/vocaloid_miku_tmb.png
+images: ['/posts/2023-06-30-vocaloid/vocaloid_miku_tmb.png']
 ---
 
 Vocaloid is a music genre where voice is synthesized
@@ -18,7 +18,7 @@ made by Yamaha, which synthesizes singing voices.
 
 ## Hatsune Miku
 
-[Hatsune Miku](https://ec.crypton.co.jp/pages/prod/virtualsinger/cv01_us), 
+[Hatsune Miku](https://ec.crypton.co.jp/pages/prod/virtualsinger/cv01_us),
 [Wikipedia - Hatsune Miku](https://en.wikipedia.org/wiki/Hatsune_Miku)
 is a character for a voice bank for Vocaloid, released in 2007.
 
@@ -38,4 +38,3 @@ released three years before Miku.
 
 - [Vocaloid famdom wiki](https://vocaloid.fandom.com/wiki/Vocaloid_Wiki). Most probably the only
   resource you need to dive into the world of vocaloid program and music created with it.
-

@@ -3,13 +3,16 @@
 {{ .Content }}
 
 {{ range .Paginator.Pages }}
+{{ $permalink := .RelPermalink }}
      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
-{{ if .Params.featured_image }}
+{{ if .Params.images }}
 <div>
-     <a href="{{ .RelPermalink }}">
-          <img src="{{ .Params.featured_image }}"/>
-     </a>
+    {{ range .Params.images }}
+        <a href="{{ $permalink }}">
+            <img src="{{ . }}"/>
+        </a>
+    {{ end }}
 </div>
 {{ end }}
 
