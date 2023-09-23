@@ -3,7 +3,7 @@ title: "Let's write a Vue component - Input"
 date: 2023-08-10T21:52:43+03:00
 draft: false
 toc: true
-featured_image: /js/lwvc-input/base-input-2.png
+images: [/js/lwvc-input/base-input-2.png]
 ---
 
 In this post, we'll create an input component for vue 3.
