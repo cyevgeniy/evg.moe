@@ -1,5 +1,6 @@
 ---
 title: "Using JsDoc for typing"
+description: "How to use JSDoc for typing javascript code"
 date: 2023-06-07T22:35:19+03:00
 draft: false
 toc: true
@@ -17,12 +18,12 @@ typescript for type checks.
 ## What is JSDoc
 
 [JsDoc](https://jsdoc.app/) is a tool that can generate API documentation from comments
-that formatted in a specific way, for example: 
+that formatted in a specific way, for example:
 
 ```
 /**
  * Multiply two numbers
- * 
+ *
  * @param {number} a - First number
  * @param {number} b - Second number
  *
@@ -55,7 +56,7 @@ parameters, we use `@param` tag:
 ```
 
 `@param` tag has "{type} parameterName parameterDescription" form.
-To document return type, `@returns` tag is used: 
+To document return type, `@returns` tag is used:
 
 ```
 @returns {number}
@@ -129,7 +130,7 @@ tag:
 
  /**
   * Get user's info
-  * 
+  *
   * @param {number} id User id
   * @returns {User}
   */
@@ -153,13 +154,13 @@ in another file**:
 ```
 /**
  * Returns user's age
- * 
+ *
  * @param {import ('./user.js').User} user
  * @returns {number}
  */
 function getAge(user) {
     //...
-} 
+}
 ```
 
 ### Variable typing
@@ -224,5 +225,3 @@ in action):
 
 - [Supported JsDoc types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 - [A great article on the topic](https://dev.to/thepassle/using-typescript-without-compilation-3ko4)
-
-

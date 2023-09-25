@@ -1,6 +1,7 @@
 ---
 title: "Let's create a site like we're in 90s"
 date: 2023-04-13T23:51:11+03:00
+description: "Creating a website in an old school way"
 draft: false
 ---
 
@@ -15,7 +16,7 @@ this tutorial, you'll learn basic HTML, most of which is still relevant today.
 
 ## Tools
 
-Websites were created mostly in two ways - with the help of 
+Websites were created mostly in two ways - with the help of
 WYSIWYG (What You See Is What You Get) html editors, or by using plain
 HTML tags. We are going to use the second way, still Dreamweaver and Frontpage
 software was also great. So, we need this:
@@ -47,7 +48,7 @@ site, its "entry point". Right now, open this file and write this:
 </body>
 
 </html>
-``` 
+```
 
 The structure of our directory is very simple:
 
@@ -96,7 +97,7 @@ Our tags:
 
 ## Menu and other pages
 
-Great, now we're ready to move further. First of all, we need to pick a cool site name. I like 
+Great, now we're ready to move further. First of all, we need to pick a cool site name. I like
 the "The Web Heaven". Let's add it to the website as well as short greeting message:
 
 ```
@@ -151,7 +152,7 @@ Menu is just a list of links, so it's easy to create one:
 
 ![Screenshot of the page with menu](/posts/web90/webheaven_2.png)
 
-Notice that we use relative paths in links ( `./tips.html`, not `/tips.html`), because otherwise 
+Notice that we use relative paths in links ( `./tips.html`, not `/tips.html`), because otherwise
 our links won't work when we open our site locally. Obviously, we have to create `tips.html`, `pics.html`
 and `contact.html` files. They have similar structure and differ only in headings:
 
@@ -409,4 +410,3 @@ This is how our `index.html` page looks now:
 I think that it's enough for the first version, it's time to upload it to
 Geocities and tell my friends about my brand new website. [Here](/posts/web90/index.html)
 is what we've got. Hope this post was interesting for you.
-

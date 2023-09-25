@@ -1,5 +1,6 @@
 ---
 title: "Let's write a Vue component - Input"
+description: "Creating an input component in Vue"
 date: 2023-08-10T21:52:43+03:00
 draft: false
 toc: true

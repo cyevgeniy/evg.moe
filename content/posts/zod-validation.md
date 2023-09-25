@@ -1,5 +1,6 @@
 ---
 title: "Vue: input data validation with zod"
+description: "Using zod js library for form validation"
 date: 2023-05-25T22:52:02+03:00
 draft: false
 toc: true
@@ -340,7 +341,7 @@ the result of validation relies on **another field's value**), the [`refine()`](
 method is used. Its first argument is a function that accepts the whole schema
 as a parameter, and _the truthiness of its result_ leads
 to passing the validation. The second parameter is settings - we set the error message
-and and the error's path. 
+and and the error's path.
 
 This line returns `true` if the `sameFlag` is true, or returns the result
 of email validation, which is done by regular expression. I've grabbed this regex
@@ -535,7 +536,7 @@ const errors = computed(() => {
     }
 
     const validationResult = personalSchema.safeParse(formData)
-  
+
     return validationResult.success ? undefined : validationResult.error.format()
 
 })
@@ -595,7 +596,7 @@ function onSubmit() {
 .input {
 display: flex;
   gap: 0.3rem;
-  flex-direction: column;  
+  flex-direction: column;
 }
 .container {
   display: flex;

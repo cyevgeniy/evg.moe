@@ -1,5 +1,6 @@
 ---
 title: "JS: Check if an object is empty"
+description: "How to check if an object is empty in Javascript"
 date: 2023-07-02T17:34:52+03:00
 draft: false
 images: [/js/js-is-object-empty/thumbnail.png]
@@ -95,8 +96,8 @@ Maps and Sets are also objects, and they have a `size` function that
 returns the count of elements they contain, but they don't have something like
 `isArray`, so we're going to use [Object.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString).
 
->Object.prototype.toString() returns "[object Type]", 
->where Type is the object type. If the object has a 
+>Object.prototype.toString() returns "[object Type]",
+>where Type is the object type. If the object has a
 >`Symbol.toStringTag` property whose value is a string,
 >that value will be used as the Type.
 >Many built-in objects, including Map and Symbol, have a `Symbol.toStringTag`

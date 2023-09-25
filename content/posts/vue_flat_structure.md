@@ -1,6 +1,7 @@
 ---
 title: "Vue js: on keeping all components in a single directory"
 date: 2023-05-04T19:24:11+03:00
+description: "On keeping Vue components in a single directory"
 draft: false
 ---
 
@@ -35,12 +36,12 @@ this directory contains their tests, if any. This way of organizing components h
   import TextLabel from "../../Text/TextLabel.vue"
   ```
 - You won't spend your time deciding where should you put
-  your new component. This is a really good one. If you have a 
+  your new component. This is a really good one. If you have a
   card with an article author's avatar and a header with the same avatar,
   where should you put the "Avatar.vue"? In a "header" subdirectory or
   in a "card"? Or maybe create a "shared" directory and put all repetitive
   components here? It's hard to decide actually.
-  Moreover, often, when we create a new component, 
+  Moreover, often, when we create a new component,
   **we don't know whether it will be used somewhere else or not**. With
   the flat structure, it's not an issue.
 - Such structure forces you to re-use your components. If you
@@ -55,7 +56,7 @@ this directory contains their tests, if any. This way of organizing components h
 ## Official Vue style guides
 
 Applying official components' naming convention dramatically increase
-understanding of what's going on with your components. Consider this list of components: 
+understanding of what's going on with your components. Consider this list of components:
 
 ```
 Button.vue
@@ -77,7 +78,7 @@ TheSidebar.vue
 TheHeader.vue
 ```
 
-At first glance it looks like there's no differences and both 
+At first glance it looks like there's no differences and both
 lists provide the same information, but these styles of naming are very different.
 Let's take `MainLogoutButton.vue` and `LogoutButton.vue`
 from the first example. What's the difference between them? Most
@@ -88,7 +89,7 @@ application, and most probably it has some specific application logic that
 don't allow to re-use this component, though it's not a requirement.
 
 The `App` prefix from the second example also tells us that those components
-don't use any shared application state or implement any logic (such components are often called "dumb") - 
+don't use any shared application state or implement any logic (such components are often called "dumb") -
 they're used only for visual representation.
 
 ## Separate directories for pages and layouts

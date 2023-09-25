@@ -1,10 +1,11 @@
 ---
 title: "My Workflowy review"
+description: "My Workflowy review"
 date: 2023-05-16T22:47:11+03:00
 draft: false
 ---
 
-In this post I'll tell about my experience with Workflowy - 
+In this post I'll tell about my experience with Workflowy -
 famous outliner service, which I've been using for half
 a year at the moment of writing.
 
@@ -15,7 +16,7 @@ a year at the moment of writing.
 I don't suffer from information gathering much, but I have
 pretty minimal needs - sync bookmarks, keep some text
 notes and todo items. I used to keep bookmarks with
-Firefox sync mechanism and my text notes/todo items with the 
+Firefox sync mechanism and my text notes/todo items with the
 help of [protectedtext](https://protectedtext.com) (which is
 a great service!). But because firefox became unusable,
 I switched a browser from Firefox to Vivaldi on a smartphone,
@@ -81,7 +82,7 @@ a quick note and have to wait more than 5 seconds for
 application to be loaded. Any default note taking
 application starts in a moment on any android device, and such slow
 Workflowy's start speed is very irritating.
-I'm not the only one who have faced with this - there's a 
+I'm not the only one who have faced with this - there's a
 [ticket with this problem](https://workflowy.zendesk.com/hc/en-us/community/posts/4412153194900-Loading-time-too-long-). The support says that 10-15 seconds for startup is "expecting"
 and "pretty standard for now".
 
@@ -119,6 +120,6 @@ enhance his attachment to Trello.
 
 In summary, I like Workflowy, but I'm afraid that the team
 will be adding more and more features to it in pursuit of
-new users, and as a result, Workflowy will become everything, 
-and nothing. Will I renew my subscription? Definitely not - 
+new users, and as a result, Workflowy will become everything,
+and nothing. Will I renew my subscription? Definitely not -
 I don't use it heavily enough to pay for it.
