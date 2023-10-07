@@ -1,6 +1,6 @@
 ---
 Title: Let's write a Vue component - checkbox
-draft: true
+draft: false
 date: 2023-09-23
 toc: true
 description: "Creating a checkbox component in Vue"
