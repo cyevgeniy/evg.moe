@@ -17,3 +17,7 @@ paginate=100
     name = "Rss"
     url = "/index.xml"
     weight =4
+[markup]
+  [markup.highlight]
+    noClasses=true
+    style="nord"
