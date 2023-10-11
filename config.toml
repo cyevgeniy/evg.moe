@@ -21,3 +21,5 @@ paginate=100
   [markup.highlight]
     noClasses=true
     style="nord"
+  [markup.goldmark.renderer]
+    unsafe = true # Allow HTML in md files
