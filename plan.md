@@ -12,5 +12,5 @@
 - Vue: how to allow only specific component as a child
 - Vue: how to check whether a component is a child of specific component (check for inject key)
 - JS: set focus on the first invalid field (add data-* attribute and find it with queryAll function)
-- Short post: vue-tsc in watch mode
++ Short post: vue-tsc in watch mode
 - Empty blocks create gaps inside flex layouts
