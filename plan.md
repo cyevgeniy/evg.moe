@@ -13,3 +13,4 @@
 + Vue: how to check whether a component is a child of specific component (check for inject key)
 - JS: set focus on the first invalid field (add data-* attribute and find it with queryAll function)
 + Short post: vue-tsc in watch mode
+- Display image and, if it is not exist, display background color in a block
