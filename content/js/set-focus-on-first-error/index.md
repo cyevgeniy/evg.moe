@@ -6,6 +6,13 @@ draft: true
 toc: true
 ---
 
+In this article, I'll show you how you can easily focus on the first
+element with an error on your form. The methodology is framework-agnostic,
+so you can easily adopt it to your framework (if you use any).
+
+<!--more-->
+
+
 ## TL;DR
 
 Add a `data-error` attribute to an element if it has an error and then
@@ -240,6 +247,144 @@ That's all, now, on submit, focus will be set on the first
 field with an invalid value:
 
 ![validation result](form-2.png)
+
+## Full source code
+
+`src/main.ts`:
+
+```
+import './style.css'
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+<div class="personal-form">
+  <div class="text-input">
+    <label for="name">Name</label>
+    <input id="name" type="text">
+    <div class="error-label" id="error-name"></div>
+  </div>
+
+  <div class="text-input">
+    <label for="email">Email</label>
+    <input id="email" type="text">
+    <div class="error-label" id="error-email"></div>
+  </div>
+
+  <div class="text-input">
+    <label for="address">Address</label>
+    <input id="address" type="text">
+    <div class="error-label" id="error-address"></div>
+  </div>
+
+  <div class="text-input">
+    <label for="passport">Passport</label>
+    <input id="passport" type="text">
+    <div class="error-label" id="error-passport"></div>
+  </div>
+  <button id="send"> Send </button>
+</div>
+`
+
+let name = ''
+let email = ''
+let address = ''
+let passport = ''
+
+const errors = {
+  name: '',
+  email: '',
+  address: '',
+  passport: '',
+}
+
+function updateValue(inputId, cb: (value: string) => void) {
+  document.getElementById(inputId).addEventListener('input', (e: Event) => {
+    const value = (e.target as HTMLInputElement).value
+    cb(value)
+  })
+}
+
+updateValue('name', (value) => name = value)
+updateValue('email', (value) => email = value)
+updateValue('address', (value) => address = value)
+updateValue('passport', (value) => passport = value)
+
+function onSubmit() {
+  validate()
+  displayErrors()
+  focusOnError()
+}
+
+document.getElementById('send').addEventListener('click', onSubmit)
+
+function validate() {
+  // First of all, reset all error messages
+  for (const key in errors)
+    errors[key] = ''
+
+  if (!name.length)
+    errors.name = 'Required field'
+  else if (name.length > 30)
+    errors.name = '30 characters max'
+
+  if (!passport.length)
+    errors.passport = 'Required field'
+  else if (passport.length !== 13)
+    errors.passport = 'Pasport id should be 13 characters long'
+}
+
+function setErrorValue(field: string, error: string) {
+  const el = document.getElementById(`error-${field}`)
+  if (el)
+    el.innerText = error
+}
+
+function displayErrors() {
+  for (const key in errors) {
+    setErrorValue(key, errors[key])
+    if (errors[key])
+      document.getElementById(key)?.setAttribute('data-error', errors[key])
+    else
+      document.getElementById(key)?.removeAttribute('data-error')
+  }
+}
+
+function focusOnError() {
+  document.querySelector('[data-error]')?.focus()
+}
+```
+
+`src/style.css`:
+
+```
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.personal-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 70ch;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.error-label {
+  color: red;
+  font-size: 14px;
+}
+
+.error-label:empty {
+  display: none;
+}
+```
 
 ## Pros and cons
 
