@@ -2,7 +2,7 @@
 title: "JS: focus on the first input with an error"
 description: "How to set focus on the field that hasn't passed validation"
 date: 2023-12-03
-draft: true
+draft: false
 toc: true
 ---
 
@@ -167,6 +167,10 @@ function onSubmit() {
 document.getElementById('send').addEventListener('click', onSubmit)
 ```
 
+The idea is simple -
+
+Now we need to implement each from these steps.
+
 ### Add validation
 
 Our validation logic lives in the `validate` function:
@@ -192,19 +196,23 @@ function validate() {
 It validates only two fields, but that is enough for the
 demonstration. You can read article about validation with
 the help of the zod framework [here](https://proj11.com/posts/zod-validation/).
+It is worth noting that this function doesn't do anything with visual representation on the page -
+it only validates variables' values and writes error messages to another variables.
 
 ### Display errors
 
 After our form's data is validated,  it's time
-to display validation errors if there are any.
-The algorithm is simple: we are
-iterating over the `errors` object and updating
-inner text of the error labels with. Each error label's id
+to display errors if there are any.
+The algorithm is simple: we
+iterate over the `errors` object and update
+inner text of the error labels with corresponding value. Each error label's id
 contains field name (`error-name`, `error-passport`, `error-email` etc),
 so we can rich them with `document.getElementById` function.
 
 Besides that, we are adding a `data-error` attribute to the **input fields
 which are invalid**.
+
+So, here it is:
 
 ```
 function displayErrors() {
@@ -221,7 +229,7 @@ function displayErrors() {
 }
 ```
 
-`setErrorValue` function searches for error label
+`setErrorValue` function searches for an error label
 and updates its text:
 
 ```
@@ -232,10 +240,10 @@ function setErrorValue(field: string, error: string) {
 }
 ```
 
-### Focus on error
+### Set focus on a field with an error
 
 We use `document.querySelector` to get *the first element
-in the DOM tree with `data-error` attribute and set focus on it*:
+in the DOM tree with a `data-error` attribute and set focus on it*:
 
 ```
 function focusOnError() {
@@ -243,7 +251,7 @@ function focusOnError() {
 }
 ```
 
-That's all, now, on submit, focus will be set on the first
+That's all! Now, on submit, focus will be set on the first
 field with an invalid value:
 
 ![validation result](form-2.png)
