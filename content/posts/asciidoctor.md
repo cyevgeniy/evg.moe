@@ -12,7 +12,7 @@ Resulting HTML is a mess.
 
 <!--more-->
 
-Simple code listing is wrapped in a **three** divs:
+For example, simple code listing is wrapped in **three** divs:
 
 ```
 <div class="listingblock">
