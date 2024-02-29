@@ -1,7 +1,6 @@
 ---
 Title: vue-tsc in watch mode
 date: 2023-11-04
-toc: true
 description: "Check for typescript errors in Vue components without LSP"
 images: [/js/vue-tsc-watch-mode/vue-tsc.png]
 ---
