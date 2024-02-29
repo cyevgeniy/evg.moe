@@ -1,0 +1,88 @@
+pre {
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid gray;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.625rem;
+  line-height: 1.5;
+}
+
+blockquote {
+  border: 2px solid black;
+  padding: 0.5rem;
+  margin-left: 0;
+  background-color: rgb(253, 231, 37);
+}
+
+a {
+  color: rgb(59, 82, 139);
+}
+
+code {
+  color: red;
+}
+
+#TableOfContents {
+  border: 2px solid black;
+  max-width: 780px;
+  padding: 0.5rem;
+}
+
+
+
+
+pre code {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+figure {
+  margin-left: 0;
+}
+
+main {
+  padding: 4px;
+  margin-top: 16px;
+}
+
+p, ul, ol, blockquote {
+  max-width: 780px;
+
+}
+
+nav {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.article-preview {
+  margin-top: 2rem;
+}
+
+.article-preview h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.article-preview p {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}

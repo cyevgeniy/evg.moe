@@ -1,59 +1,12 @@
 <head>
   {{ template "_internal/twitter_cards.html" . }}
-	{{ template "_internal/opengraph.html" . }}
-	<meta charset="utf-8">
+  {{ template "_internal/opengraph.html" . }}
+  <meta charset="utf-8">
   {{ if .Params.description }}
   <meta name="description" content="{{ .Params.description}}">
   {{ end }}
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link href="/css/main.css" rel="stylesheet" type="text/css" media="all">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{.Params.title}}</title>
-  <style>
-   a {
-     display: inline-block;
-     position: relative;
-     text-decoration: none;
-     color: black;
-   }
-
-   a::after {
-     content: "";
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     z-index: -1;
-     height: 20%;
-     width: 100%;
-     background-color: lightblue;
-     transition: height 0.1s ease-out;
-   }
-
-   a:hover::after {
-     height: 50%;
-   }
-
-   pre {
-     overflow-x: auto;
-     overflow-y: auto;
-     border: 1px solid gray;
-     padding: 0.5rem;
-   }
-   img {
-     max-width: 100%;
-   }
-
-   body {
-     max-width: 780px;
-     margin: 0 auto;
-     padding: 4px;
-     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-   }
-   h1 {
-     text-align: center;
-   }
-
-   hr, footer {
-     border-style: dashed;
-   }
-  </style>
 </head>

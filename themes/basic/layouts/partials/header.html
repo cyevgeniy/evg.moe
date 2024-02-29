@@ -1,13 +1,12 @@
 <header>
-<h1>{{ .Site.Params.name}} </h1>
-<p><i> {{ .Site.Params.description }} </i></p>
+  <h1>{{ .Site.Params.name}} </h1>
+  <p><i> {{ .Site.Params.description }} </i></p>
 </header>
 
-    <nav>
-{{ range .Site.Menus.main }}
-        {{ $text := print .Name | safeHTML }}
+<nav>
+  {{ range .Site.Menus.main }}
+  {{ $text := print .Name | safeHTML }}
 
-<strong><a  href="{{ .URL }}"> {{ $text }}</a></strong> |
-{{ end }}
-    </nav>
-<hr>
+  <strong><a  href="{{ .URL }}"> {{ $text }}</a></strong> |
+  {{ end }}
+</nav>

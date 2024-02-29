@@ -42,7 +42,7 @@ with the mobile app - I'll list them in the next section.
 Here, it's worth mentioning DynaList - a clone of Workflowy,
 which in my opinion has a terrible user interface:
 
-![Dynalist screenshot](/posts/dynalist_1.png)
+{{< figure src="/posts/dynalist_1.png" >}}
 
 ## Interface (Mobile)
 
@@ -110,7 +110,7 @@ complex documents.
 They're selling  it as the feature that
 would incline Trello users to make a switch to Workflowy.
 
-![Workflowy vs Trello](/posts/workflowy_trello.png)
+{{< figure src="/posts/workflowy_trello.png" >}}
 
 I think this is silly. Trello sucks, but if someone uses it,
 Workflowy's unintuitive kanban implementation will just

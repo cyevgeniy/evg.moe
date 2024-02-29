@@ -2,28 +2,4 @@
 
 {{ .Content }}
 
-{{ range .Paginator.Pages }}
-{{ $permalink := .RelPermalink }}
-     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-
-{{ if .Params.images }}
-<div>
-    {{ range .Params.images }}
-        <a href="{{ $permalink }}">
-            <img src="{{ . }}"/>
-        </a>
-    {{ end }}
-</div>
-{{ end }}
-
-
-<p>
-     {{ .Summary }}
-</p>
-<!--      {{ if .Truncated }}
-     <p><a href="{{ .RelPermalink }}">Read More...</a></p>
-     {{ end }}
- -->
-{{ end }}
-
 {{ end }}

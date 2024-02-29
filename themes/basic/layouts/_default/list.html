@@ -3,24 +3,31 @@
 {{ .Content }}
 
 {{ range .Paginator.Pages }}
-     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+{{ $permalink := .RelPermalink }}
+<article class="article-preview">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
-{{ if .Params.featured_image }}
-<div>
-     <a href="{{ .RelPermalink }}">
-          <img src="{{ .Params.featured_image }}"/>
-     </a>
-</div>
-{{ end }}
+  {{ if .Params.images }}
+  <div>
+    {{ range .Params.images }}
+    <a href="{{ $permalink }}">
+      <img src="{{ . }}"/>
+    </a>
+    {{ end }}
+  </div>
+
+  {{ end }}
+
+  {{ $markdown := .Summary | markdownify }}
+
+  {{ if not ( strings.Contains $markdown "<p>" ) }}
+    <p>{{ $markdown }}</p>
+    {{ else }}
+    {{ $markdown }}
+    {{ end }}
 
 
-
-<p>
-     {{ .Summary }}
-</p>
-<!--      {{ if .Truncated }}
-     <p><a href="{{ .RelPermalink }}">Read More...</a></p>
-     {{ end }} -->
+</article>
 
 {{ end }}
 
