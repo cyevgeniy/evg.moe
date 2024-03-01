@@ -1,4 +1,3 @@
-
 ## Vue and JS articles
 
 - [Let's write a Vue component - Checkbox](/js/lwvc-checkbox)
