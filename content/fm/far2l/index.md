@@ -22,7 +22,7 @@ brew install --cask far2l
 
 ## Screenshots
 
-![Far2l main screenshot](/fm/far2l.png)
+![Far2l main screenshot](/fm/far2l/i/far2l.png)
 
 ## Usage
 

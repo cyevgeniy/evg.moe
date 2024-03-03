@@ -1,5 +1,5 @@
 ---
-title: "Sublime text basic usage"
+title: "Sublime text basics"
 date: 2023-04-29T21:37:11+03:00
 draft: false
 ---
@@ -23,13 +23,13 @@ This is what you should do:
 
 1. `Ctrl` - `Shift` - `p`
 2. Type text "lower"
-3. Select "Convert case: Lower case" command ( moving arrows ), 
+3. Select "Convert case: Lower case" command ( moving arrows ),
    and press `Enter` (or click )
 
 ## Sidebar
 
 - `Ctrl` - `0` - focus on sidebar
-- `Ctrl-k, Ctrl-b` - toggle sidebar 
+- `Ctrl-k, Ctrl-b` - toggle sidebar
 
 ## Layouts
 
@@ -44,7 +44,7 @@ Sublime Text allows you to open a few tabs side by side.
 - `Alt` - `Shift` - `9` - Split horizontally, 3 tabs
 
 You can move between layout windows with `Ctrl` + `<number>` hotkeys.
-`Ctrl` - `0` - move to the sidebar, `Ctrl` - `1` - move to the first tab, 
+`Ctrl` - `0` - move to the sidebar, `Ctrl` - `1` - move to the first tab,
 `Ctrl` - `2` - move to the second tab, and so on.
 
 ## Line manipulation
@@ -73,7 +73,7 @@ To set an additional cursor, use `Ctrl` - `click`. Then, all commands
 ( like moving cursor, char/word deletion etc) will be applied to all
 cursors.
 
-There's also nice feature in Sublime Text - you can select next occurance 
+There's also nice feature in Sublime Text - you can select next occurance
 of the current word. It works this way:
 
 1. Press `Ctrl` - `d` on current word. It will be selected.

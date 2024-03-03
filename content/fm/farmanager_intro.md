@@ -41,3 +41,7 @@ Far manager is a terminal-based file manager for Windows.
 - Now it hasn't an option for turning on "Black and white"
   colorscheme.
 - Ugly default "Blue" color that makes you sick
+
+## More articles
+
+- [Far2l is a port of Far manager for Linux and Mac](/fm/far2l)
