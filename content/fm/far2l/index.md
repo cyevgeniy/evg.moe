@@ -1,7 +1,7 @@
 ---
 title: "Far2l file manager"
 date: 2024-03-03T21:55:14+03:00
-draft: true
+draft: false
 ---
 
 [Far2l](https://github.com/elfmz/far2l) is a port of Far Manager v2
