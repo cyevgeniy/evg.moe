@@ -2,6 +2,7 @@
 title: "Sublime text basics"
 date: 2023-04-29T21:37:11+03:00
 draft: false
+tags: ["editors", "sublime"]
 ---
 
 Sublime Text basic usage.

@@ -4,6 +4,7 @@ description: "Vue: How to check for a specific parent component"
 date: 2023-11-14
 toc: true
 draft: false
+tags: ["vue", "tech"]
 ---
 
 The problem: you want to make sure that a component is

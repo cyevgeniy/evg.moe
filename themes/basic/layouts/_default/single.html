@@ -2,19 +2,20 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    <nav><strong><a href="/">Home</a></strong></nav>
+    {{- partial "header.html" . -}}
     <main>
-      <article>
+      <div id="content">
         <h1> {{ .Title}} </h1>
 
         {{ if .Params.toc }}
-        <b>Table of Contents</b>:
+        <p><b>Table of Contents</b>:</p>
 
         {{.TableOfContents}}
         {{ end}}
 
         {{ .Content }}
-      </article>
+      </div>
+      {{- partial "tags.html" . -}}
     </main>
     {{- partial "footer.html" . -}}
   </body>

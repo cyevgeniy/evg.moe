@@ -2,37 +2,13 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    <nav>
-      <strong><a href="/">Home</a></strong>
-      <strong>→<a href="{{ .RelPermalink }}">{{ .Title }}</a></strong>
-    </nav>
-    <main>
-
-      {{ .Content }}
-
+    {{- partial "header.html" . -}}
+    {{ .Content }}
+    <ul id="list">
       {{ range .Paginator.Pages }}
       {{ $permalink := .RelPermalink }}
-      <article class="article-preview">
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-
-        {{ if .Params.images }}
-        <div>
-          {{ range .Params.images }}
-          <a href="{{ $permalink }}">
-            <img src="{{ . }}"/>
-          </a>
-          {{ end }}
-        </div>
-
-        {{ end }}
-
-        {{ $markdown := .Summary | markdownify }}
-
-        {{ if not ( strings.Contains $markdown "<p>" ) }}
-          <p>{{ $markdown }}</p>
-          {{ else }}
-          {{ $markdown }}
-          {{ end }}
-      </article>
-    </main>
-    {{ end }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span>{{ .Date.Format .Site.Params.DateForm }}</span></li>
+      {{ end }}
+    </ul>
+  </body>
+</html>

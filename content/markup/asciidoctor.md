@@ -1,6 +1,7 @@
 ---
 title: "Asciidoctor tutorial"
 toc: true
+date: 2024-03-10
 ---
 
 Asciidoctor is a markup language similar to markdown, but
@@ -21,7 +22,7 @@ npm i -g asciidoctor
 
 ### Ruby
 
-Search for a package with name `asciidoctor`: 
+Search for a package with name `asciidoctor`:
 
 ```
 apt-get install asciidoctor
@@ -35,7 +36,7 @@ asciidoctor page.adoc -o page.html
 
 ## The best feature of Asciidoctor #1
 
-Links are easy to remember, check it out: 
+Links are easy to remember, check it out:
 
 ```
 This link is parsed automatically:
@@ -90,7 +91,7 @@ markup language, much better than markdown.
 
 It's strengths:
 
-- Links 
+- Links
 - Images
 - Elegant headings syntax
 
@@ -124,5 +125,3 @@ than markdown, but its backends suck.
 
 - [Asciidoctor official site](https://asciidoctor.org)
 - [Asciidoctor syntax quick reference](https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/)
-
-

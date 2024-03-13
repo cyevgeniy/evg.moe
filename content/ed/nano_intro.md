@@ -2,6 +2,7 @@
 title: "Nano editor"
 date: 2023-04-11T15:28:07+03:00
 draft: false
+tags: ["editors", "nano"]
 ---
 
 Nano is the editor that can save your life if you don't know vim, but
@@ -44,14 +45,14 @@ means `Ctrl-k`.
 
 Some other commands:
 
-- `Ctrl-r`: open file 
+- `Ctrl-r`: open file
 - `Ctrl-o`: write content to a file
     (autocomplete works on Tab press)
-- `Alt-u`: Undo 
-- `Alt-r`: Redo 
-- `Ctrl-k`: Kill line or selection 
-- `Ctrl-k`: Paste 
-- `Ctrl-n`: Cursor down 
-- `Ctrl-p`: Cursor up 
-- `Ctrl-b`: Cursor left 
+- `Alt-u`: Undo
+- `Alt-r`: Redo
+- `Ctrl-k`: Kill line or selection
+- `Ctrl-k`: Paste
+- `Ctrl-n`: Cursor down
+- `Ctrl-p`: Cursor up
+- `Ctrl-b`: Cursor left
 - `Ctrl-f`: Cursor right

@@ -1,5 +1,14 @@
-{{ define "main" }}
-
-{{ .Content }}
-
-{{ end }}
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    {{- partial "header.html" . -}}
+    <ul id="list">
+      {{ range .Paginator.Pages }}
+      {{ $permalink := .RelPermalink }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span>{{ .Date.Format .Site.Params.DateForm }}</span></li>
+      {{ end }}
+    </ul>
+    <footer></footer>
+  </body>
+</html>

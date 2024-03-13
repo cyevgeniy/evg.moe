@@ -2,6 +2,7 @@
 title: "VSCode does it better than Sublime"
 date: 2023-08-08T22:13:11+03:00
 draft: false
+tags: ["editors", "sublime", "vscode"]
 ---
 
 I found a few things that VSCode does better than Sublime Text.

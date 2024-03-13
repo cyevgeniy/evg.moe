@@ -4,6 +4,7 @@ description: "How to set focus on the field that hasn't passed validation"
 date: 2023-12-03
 draft: false
 toc: true
+tags: ["js", "tech"]
 ---
 
 In this article, I'll show you how you can easily focus on the first

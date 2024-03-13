@@ -2,6 +2,7 @@
 title: "Atom text editor's sunset"
 date: 2023-04-13T23:51:11+03:00
 draft: false
+tags: ["editors", "atom"]
 ---
 
 "A hackable editor for the 21st Century", they said.
@@ -37,16 +38,16 @@ and features from Atom:
 Over the years, VSCode was actively evolving ( not always in a good direction ) and became more and more
 popular across developers. Let's see at stackoverflow developer survey results.
 
-- 2022 - 1st place (74.48%); Atom - 12 place (9.35%) 
-- 2021 - 1st place (71.06%); Atom - 10 place (12.94%) 
+- 2022 - 1st place (74.48%); Atom - 12 place (9.35%)
+- 2021 - 1st place (71.06%); Atom - 10 place (12.94%)
 - 2020 - I have not found info about tools for this survey
 - **2019 - 1st place (50.7%); Atom - 10 place (13.3%)**
-- 2018 - 1st place (34.9%); Atom - 9 place (18.0%) 
-- 2017 - 5 place (24%); Atom - 7 place (20%) 
-- 2016 - 13 place (7.2%); Atom - 9 place (12.5%) 
-- 2016 - Not presented; Atom - 5 place (2.8%) 
+- 2018 - 1st place (34.9%); Atom - 9 place (18.0%)
+- 2017 - 5 place (24%); Atom - 7 place (20%)
+- 2016 - 13 place (7.2%); Atom - 9 place (12.5%)
+- 2016 - Not presented; Atom - 5 place (2.8%)
 
-In 2019, the next year after acquiring Github, VSCode made a huge jump - from 34 to 50%. 
+In 2019, the next year after acquiring Github, VSCode made a huge jump - from 34 to 50%.
 
 ![](/ed/atom_dead_discussion.png)
 

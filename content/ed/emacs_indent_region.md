@@ -1,7 +1,8 @@
 ---
 title: "How to move a region in Emacs"
 date: 2023-10-06
-description: "How to move a region in Emacs" 
+description: "How to move a region in Emacs"
+tags: ["editors", "tags"]
 ---
 
 To move a region horizontally, you can select it, and then
@@ -14,5 +15,5 @@ the selected region with arrows.
 
 <video src="/img/emacs_indentation.mp4" controls>
       <p>Your browser doesn't support HTML5 video.
-      Here is a <a href="/img/emacs_indentation.mp4">link to the video</a> instead.</p> 
+      Here is a <a href="/img/emacs_indentation.mp4">link to the video</a> instead.</p>
     </video>

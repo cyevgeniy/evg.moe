@@ -2,29 +2,14 @@ baseURL = 'http://proj11.com'
 languageCode = 'en-us'
 theme="basic"
 paginate=100
+
 [params]
-	name = "Project 77"
-	description = "Your web heaven"
+    DateForm = "2006.01.02"
+
 [[menu.main]]
     name = "Home"
     url = "/"
     weight = 1
-[[menu.main]]
-    name = "Editors"
-    url = "/ed/"
-    weight = 2
-[[menu.main]]
-    name = "JS & Vue"
-    url = "/js/"
-    weight = 3
-[[menu.main]]
-    name = "File managers"
-    url = "/fm/"
-    weight = 4
-[[menu.main]]
-    name = "Blog"
-    url = "/posts/"
-    weight = 5
 [[menu.main]]
     name = "Rss"
     url = "/index.xml"

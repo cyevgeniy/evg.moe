@@ -2,6 +2,7 @@
 title: "How to install packages on startup in Emacs"
 date: 2023-04-13T23:51:11+03:00
 draft: false
+tags: ["editors", "emacs"]
 ---
 
 Put these lines at the beginning of your `.emacs`:
@@ -23,7 +24,7 @@ Put these lines at the beginning of your `.emacs`:
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 
-; fetch the list of packages available 
+; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -34,5 +35,3 @@ Put these lines at the beginning of your `.emacs`:
 ```
 
 This solution I've grabbed [here](https://stackoverflow.com/questions/10092322/how-to-automatically-install-emacs-packages-by-specifying-a-list-of-package-name)
-
-

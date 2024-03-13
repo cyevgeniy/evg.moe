@@ -2,6 +2,7 @@
 title: "Sublime text plugins that work"
 date: 2023-04-13T23:51:11+03:00
 draft: true
+tags: ["editors", "sublime"]
 ---
 
 - Sublime lsp - LSP support
