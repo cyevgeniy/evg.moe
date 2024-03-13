@@ -38,10 +38,15 @@ main {
   margin-bottom: 2rem;
 }
 
-#list, #content, #header, #tags, footer {
+#list, #content, #header, #tags, footer, #tagname {
   width: var(--base);
   margin-left: auto;
   margin-right: auto;
+}
+
+#tagname {
+  font-size: 14px;
+  color: var(--c-black);
 }
 
 #list {

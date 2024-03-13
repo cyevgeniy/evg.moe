@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    {{- partial "header.html" . -}}
+    <h2 id="tagname">{{.Title}}</h2>
+    <ul id="list">
+      {{ range .Paginator.Pages }}
+      {{ $permalink := .RelPermalink }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span>{{ .Date.Format .Site.Params.DateForm }}</span></li>
+      {{ end }}
+    </ul>
+  </body>
+</html>
