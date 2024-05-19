@@ -1,0 +1,18 @@
+---
+Title: 'About me'
+hidden: true
+---
+
+## Now
+
+- Working as a frontend dev
+- Still love SQL
+
+## Previously
+
+- Worked as a PL/SQL developer
+
+## Online
+
+- Email: hi@evg.me
+- Github:  [cyevgeniy](https://github.com/cyevgeniy)

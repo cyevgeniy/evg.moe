@@ -1,0 +1,10 @@
+<div class="proj-container">
+  {{ range $.Site.Data.projects.list }}
+  <div class="project">
+    <a href="{{.url}}">{{ .name }} </a>
+    {{ if .description }}
+    <p> {{ .description }} </p>
+    {{ end }}
+  </div>
+      {{ end }}
+</div>

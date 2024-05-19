@@ -3,12 +3,12 @@
   {{- partial "head.html" . -}}
   <body>
     {{- partial "header.html" . -}}
+    {{ .Content }}
     <ul id="list">
-      {{ range .Paginator.Pages }}
+      {{ range where .Paginator.Pages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
       {{ $permalink := .RelPermalink }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span>{{ .Date.Format .Site.Params.DateForm }}</span></li>
       {{ end }}
     </ul>
-    <footer></footer>
   </body>
 </html>
