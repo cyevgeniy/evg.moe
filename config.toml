@@ -1,4 +1,4 @@
-baseURL = 'http://blog.evg.moe'
+baseURL = 'http://evg.moe'
 languageCode = 'en-us'
 theme="dot-theme"
 paginate=100
