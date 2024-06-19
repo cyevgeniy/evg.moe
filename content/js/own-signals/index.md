@@ -201,11 +201,90 @@ when the signal is changed. It means two things:
 2. We need to modify the signals' implementation and execute required
    callbacks when signal is executed as a "setter".
 
-Data structures go first. What we can use for fast lookup? Three variants come to my mind:
+Data structures go first. We'll use `Map` with signals as its keys and
+array of callbacks as its values. This map should
+be global for the whole module:
 
-- Objects
-- Sets
-- Maps
+```
+const effects = new Map()
+```
+
+```js
+function on(signal, cb) {
+  const signalEffects = effects.get(signal)
+
+  if (signalEffects) {
+    signalEffects.push(cb)
+  } else {
+    effects.set(signal, [cb])
+  }
+}
+```
+
+Very simple, isn't it? We just push the callback
+to the array of already existed callbacks if it
+exists. If it's not we create a brand new array with just
+one value - our callback.
+
+And finally, we need to find these callbacks
+and execute them in our signals. This is the piece
+of code that implements it:
+
+```
+// Find registered callbacks
+const signalEffects = effects.get(signal)
+if (signalEffects) {
+  for (const cb of signalEffects) {
+    cb(_value)
+  }
+}
+```
+
+## Full source
+
+```js
+const effects = new Map()
+
+function ss(value) {
+  let _value = value
+
+  function signal(v) {
+    const isSetter = arguments.length > 0
+
+    // TODO: check for equality and don't trigger effects
+    //       when the actual value has not been changed
+    if (isSetter) {
+      if (typeof v === 'function') {
+        _value = v(_value)
+      } else {
+        _value = v
+      }
+
+      // Find registered callbacks
+      const signalEffects = effects.get(signal)
+      if (signalEffects) {
+        for (const cb of signalEffects) {
+          cb(_value)
+        }
+      }
+    } else {
+      return _value
+    }
+  }
+
+  return signal
+}
+
+function on(signal, cb) {
+  const signalEffects = effects.get(signal)
+
+  if (signalEffects) {
+    signalEffects.push(cb)
+  } else {
+    effects.set(signal, [cb])
+  }
+}
+```
 
 ## Links
 
