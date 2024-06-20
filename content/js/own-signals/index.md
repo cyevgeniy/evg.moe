@@ -1,18 +1,55 @@
 ---
-title: "Create own signals in plain JS"
+title: "Create signals in plain JS"
 tags: ["js", "programming"]
 date: "2024-06-09"
 draft: true
 toc: true
 ---
 
-In this article, we'll create our own signals implementation.
+In this article, we'll implement our own signals.
 
 ## What are signals
 
 Signals are objects that incapsulate access to
 their original value and can track dependencies that
 use these signals.
+
+## Yes but why?
+
+The goal of this post is to have fun at first
+and to create the basic understanding
+through practice of how such things *can* work.
+
+## Real world signals examples
+
+### Vue
+
+In vue3, there are two main reactivity primitives: ref and reactive.
+They're not called signals in vue, but they're the same.
+From the [documentation](https://vuejs.org/guide/extras/reactivity-in-depth.html#connection-to-signals):
+
+>Fundamentally, signals are the same kind of reactivity primitive as Vue refs.
+>It's a value container that provides dependency tracking on access,
+>and side-effect triggering on mutation.
+
+Vue automatically tracks dependencies that use refs or reactive objects,
+and triggers re-render or re-computation (if we talk about such
+thing as `computed`) when the underlying value is changed.
+
+Beside this, vue provides so-called watchers, which run provided
+functions any time their 'watched' value has been changed. In code
+it looks this way:
+
+```ts
+const name = ref('name')
+
+watch(name, (newName) => {
+  console.log(newName)
+})
+```
+
+### S.js
+
 
 ## Design signals
 
@@ -97,7 +134,7 @@ console.log(signal()) // prints '4'
 ```
 
 But signals as containers for values are not very useful, though. We
-want to be able to perform some actions when signal's internal value
+want to be able to perform some actions when signal's  value
 changed. For this, we'll create a function named `on`:
 
 ```js
@@ -117,6 +154,8 @@ What we expect from this code? It should print these two lines:
 New value is 13
 New value is 14
 ```
+
+Yes, we've copied vue's watchers here :)
 
 ## Implementation
 

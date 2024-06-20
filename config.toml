@@ -24,7 +24,7 @@ paginate=100
     weight =6
 [markup]
   [markup.highlight]
-    noClasses=true
-    style="nord"
+
+    style="emacs"
   [markup.goldmark.renderer]
     unsafe = true # Allow HTML in md files
