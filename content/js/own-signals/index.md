@@ -1,6 +1,6 @@
 ---
 title: "Create own signals in plain JS"
-tags: ["js", "signals", "programming"]
+tags: ["js", "programming"]
 date: "2024-06-09"
 draft: true
 toc: true
@@ -12,7 +12,7 @@ In this article, we'll create our own signals implementation.
 
 Signals are objects that incapsulate access to
 their original value and can track dependencies that
-use these signals as dependencies.
+use these signals.
 
 ## Design signals
 
@@ -33,7 +33,7 @@ console.log(userName()) // prints 'User'
 
 For simple literal values like strings or numbers
 changing values by simply passing them as arguments
-is very handy, but for more complex types it may
+is handy, but for more complex types it may
 be too verbose. Imagine a `user` object with complex
 structure like this:
 
@@ -98,7 +98,7 @@ console.log(signal()) // prints '4'
 
 But signals as containers for values are not very useful, though. We
 want to be able to perform some actions when signal's internal value
-changes. For this, we'll create a function named `on`:
+changed. For this, we'll create a function named `on`:
 
 ```js
 const s = createSignal(12)
@@ -195,7 +195,7 @@ console.log(user().age) // 41
 ### `on` function
 
 This function accept a signal and a callback that should be called
-when the signal is changed. It means two things:
+when the signal is changed. Now we need to do two things:
 
 1. We need some data structure to store callbacks
 2. We need to modify the signals' implementation and execute required
@@ -223,22 +223,27 @@ function on(signal, cb) {
 
 Very simple, isn't it? We just push the callback
 to the array of already existed callbacks if it
-exists. If it's not we create a brand new array with just
+exists. If not, we create a brand new array with just
 one value - our callback.
 
-And finally, we need to find these callbacks
+Finally, we need to find these callbacks
 and execute them in our signals. This is the piece
 of code that implements it:
 
-```
+```ts
 // Find registered callbacks
 const signalEffects = effects.get(signal)
 if (signalEffects) {
   for (const cb of signalEffects) {
-    cb(_value)
+    cb(newSignalValue)
   }
 }
 ```
+
+In the first line, we retrieve an array of callbacks
+and store them into a `signalEffects` variable.
+Then we iterate over this array and execute each of
+the callbacks with the new signal's value (`newSignalValue` variable).
 
 ## Full source
 
@@ -288,5 +293,5 @@ function on(signal, cb) {
 
 ## Links
 
-- S.js
-- SolidJS signals
+- [S.js](https://github.com/adamhaile/S)
+- [SolidJS signals](https://docs.solidjs.com/concepts/signals)
