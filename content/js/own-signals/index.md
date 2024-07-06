@@ -36,7 +36,7 @@ Vue automatically tracks dependencies that use refs or reactive objects,
 and triggers re-render or re-computation (if we talk about such
 thing as `computed`) when the underlying value is changed.
 
-Beside this, vue provides so-called watchers, which run provided
+Additionally, vue provides 'watchers'(`watch`, `watchEffect`), which run provided
 functions any time their 'watched' value has been changed. In code
 it looks this way:
 
@@ -50,6 +50,21 @@ watch(name, (newName) => {
 
 ### S.js
 
+In S.js, signals are created with the `S.data` function.
+To change the signal's value, you call signal as a function
+with an argument, and you call signal without arguments
+to get it's current value:
+
+```js
+const name = S.data('Andrew')
+name('Saphir')
+console.log(name()) // prints 'Saphir'
+```
+
+S.js has the `on` method, which is identical to vue's
+`watch`:
+
+TODO: add code example
 
 ## Design signals
 
@@ -70,8 +85,8 @@ console.log(userName()) // prints 'User'
 
 For simple literal values like strings or numbers
 changing values by simply passing them as arguments
-is handy, but for more complex types it may
-be too verbose. Imagine a `user` object with complex
+is ok, but for more complex types it may
+be too verbose. Imagine a `user` object with a complex
 structure like this:
 
 ```
@@ -83,7 +98,7 @@ const user = {
 }
 ```
 
-To update one property we have to pass a new
+To update one property, we have to pass a new
 value to a signal:
 
 ```js
@@ -110,7 +125,7 @@ signal({
 })
 ```
 
-Looks better, yet we can change it to be slighly handier - pass a callback
+Looks better, yet we can make it better - pass a callback
 function with one parameter - current signal's value, and assign this
 callback's result as a new value:
 
@@ -133,7 +148,9 @@ signal(v => ++v)
 console.log(signal()) // prints '4'
 ```
 
-But signals as containers for values are not very useful, though. We
+### Track signal changes 
+
+Signals as containers for values are not very useful, though. We
 want to be able to perform some actions when signal's  value
 changed. For this, we'll create a function named `on`:
 
@@ -193,6 +210,8 @@ signal(2) // 'With arguments'
 signal(undefined) // 'Without arguments'
 ```
 
+### `createSignal`
+
 For keeping the same state between signal function calls we'll wrap our state variable in a closure.
 
 ```js
@@ -222,7 +241,8 @@ console.log(name('Tanya'))
 console.log(name()) // 'Tanya'
 ```
 
-And that's it, our signal is ready. It's simple, but it works! And it also works with functions, as we planned:
+And that's it, our signal is ready.
+It's simple, but it works! And it also works with functions, as we planned:
 
 ```js
 const user = createSignal({ name: 'Anna', age: 41 })
@@ -234,11 +254,12 @@ console.log(user().age) // 41
 ### `on` function
 
 This function accept a signal and a callback that should be called
-when the signal is changed. Now we need to do two things:
+when the signal is changed. At this point, we should think
+about few things:
 
 1. We need some data structure to store callbacks
 2. We need to modify the signals' implementation and execute required
-   callbacks when signal is executed as a "setter".
+   callbacks when a signal is executed as a "setter".
 
 Data structures go first. We'll use `Map` with signals as its keys and
 array of callbacks as its values. This map should
@@ -266,8 +287,7 @@ exists. If not, we create a brand new array with just
 one value - our callback.
 
 Finally, we need to find these callbacks
-and execute them in our signals. This is the piece
-of code that implements it:
+and execute them in our signals. This is the code that implements it:
 
 ```ts
 // Find registered callbacks
@@ -279,10 +299,11 @@ if (signalEffects) {
 }
 ```
 
-In the first line, we retrieve an array of callbacks
-and store them into a `signalEffects` variable.
-Then we iterate over this array and execute each of
-the callbacks with the new signal's value (`newSignalValue` variable).
+## What's next? 
+
+I plan to write one more post
+which will introduce a few improvements to our
+current signals, stay tuned in!
 
 ## Full source
 
@@ -328,6 +349,7 @@ function on(signal, cb) {
     effects.set(signal, [cb])
   }
 }
+
 ```
 
 ## Links
