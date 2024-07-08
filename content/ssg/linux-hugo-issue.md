@@ -17,4 +17,6 @@ hugo server --disableFastRender
 And it didn't help.
 
 **Solution**: Reboot linux. I can't find the link right now,
-but I found this answer somewhere on the internet.
+but I found this answer somewhere on the internet. Turned out,
+it's all because of suspend in linux - somehow the fact that
+I wasn't shutting down a system relates to this issue.

@@ -11,7 +11,7 @@ In this article, we'll implement our own signals.
 ## What are signals
 
 Signals are objects that incapsulate access to
-their original value and can track dependencies that
+their original value and track dependencies that
 use these signals.
 
 ## Yes but why?
@@ -53,7 +53,7 @@ watch(name, (newName) => {
 In S.js, signals are created with the `S.data` function.
 To change the signal's value, you call signal as a function
 with an argument, and you call signal without arguments
-to get it's current value:
+to get its current value:
 
 ```js
 const name = S.data('Andrew')
@@ -69,7 +69,7 @@ TODO: add code example
 ## Design signals
 
 Our signals will work as in the [S.js](https://github.com/adamhaile/S) library -
-the `createSignal()` will return a function that can be
+`createSignal()` function will return a function that can be
 used as a setter when we provide a new value, and as a getter when called without arguments:
 
 ```js
@@ -349,8 +349,43 @@ function on(signal, cb) {
     effects.set(signal, [cb])
   }
 }
-
 ```
+
+## Let's do something with our signals
+
+For demonstration purposes, let's create a simple web page
+with a counter - a page with a button and the text with
+the number of times the button was clicked.
+For this we'll need one signal - `counter`: 
+
+```html
+<html>
+	<head>
+		<script type="text/javascript" src="index.js"></script>
+		<script type="text/javascript">
+			const counter = createSignal(0)
+
+			function onClick() {
+				counter(v => ++v)
+			}
+
+			window.addEventListener('load', () => {
+				const btn = document.querySelector('button')
+				btn.innerText = counter()
+				btn.addEventListener('click', onClick)
+
+				on(counter, (newValue) => {
+					btn.innerText = newValue
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button> </button>
+	</body>
+</html>
+```
+
 
 ## Links
 
