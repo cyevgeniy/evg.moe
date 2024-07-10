@@ -34,7 +34,7 @@ From the [documentation](https://vuejs.org/guide/extras/reactivity-in-depth.html
 
 Vue automatically tracks dependencies that use refs or reactive objects,
 and triggers re-render or re-computation (if we talk about such
-thing as `computed`) when the underlying value is changed.
+thing as [`computed`](https://vuejs.org/guide/essentials/computed.html)) when the underlying value is changed.
 
 Additionally, vue provides 'watchers'(`watch`, `watchEffect`), which run provided
 functions any time their 'watched' value has been changed. In code
@@ -64,7 +64,13 @@ console.log(name()) // prints 'Saphir'
 S.js has the `on` method, which is identical to vue's
 `watch`:
 
-TODO: add code example
+```js
+const counter = S.data(0)
+
+S.on(counter, () => {
+  console.log('The counter has been changed')
+})
+```
 
 ## Design signals
 
@@ -171,8 +177,6 @@ What we expect from this code? It should print these two lines:
 New value is 13
 New value is 14
 ```
-
-Yes, we've copied vue's watchers here :)
 
 ## Implementation
 
@@ -354,9 +358,8 @@ function on(signal, cb) {
 ## Let's do something with our signals
 
 For demonstration purposes, let's create a simple web page
-with a counter - a page with a button and the text with
-the number of times the button was clicked.
-For this we'll need one signal - `counter`: 
+with a button and a counter for the number of times the
+button was clicked.
 
 ```html
 <html>
@@ -371,9 +374,14 @@ For this we'll need one signal - `counter`:
 
 			window.addEventListener('load', () => {
 				const btn = document.querySelector('button')
+				// Display initial counter's value in the button
 				btn.innerText = counter()
+
+				// On each click, increment counter value
 				btn.addEventListener('click', onClick)
 
+				// Every time when the counter was changed,
+				// update button text with the new value
 				on(counter, (newValue) => {
 					btn.innerText = newValue
 				})
@@ -391,3 +399,4 @@ For this we'll need one signal - `counter`:
 
 - [S.js](https://github.com/adamhaile/S)
 - [SolidJS signals](https://docs.solidjs.com/concepts/signals)
+- [Vue](https://vuejs.org/)
