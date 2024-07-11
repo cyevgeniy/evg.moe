@@ -1,8 +1,7 @@
 ---
 title: "Create signals in plain JS"
 tags: ["js", "programming"]
-date: "2024-06-09"
-draft: true
+date: "2024-07-10"
 toc: true
 ---
 
@@ -16,7 +15,7 @@ use these signals.
 
 ## Yes but why?
 
-The goal of this post is to have fun at first
+The goal of this post is to have fun
 and to create the basic understanding
 through practice of how such things *can* work.
 
@@ -34,9 +33,9 @@ From the [documentation](https://vuejs.org/guide/extras/reactivity-in-depth.html
 
 Vue automatically tracks dependencies that use refs or reactive objects,
 and triggers re-render or re-computation (if we talk about such
-thing as [`computed`](https://vuejs.org/guide/essentials/computed.html)) when the underlying value is changed.
+thing as [`computed`](https://vuejs.org/guide/essentials/computed.html)) when their value is changed.
 
-Additionally, vue provides 'watchers'(`watch`, `watchEffect`), which run provided
+Additionally, vue provides 'watchers'(`watch`, `watchEffect`), which run callback
 functions any time their 'watched' value has been changed. In code
 it looks this way:
 
@@ -89,7 +88,7 @@ console.log(userName()) // prints 'User'
 
 ### Update value with function
 
-For simple literal values like strings or numbers
+For simple values like strings or numbers
 changing values by simply passing them as arguments
 is ok, but for more complex types it may
 be too verbose. Imagine a `user` object with a complex
@@ -131,9 +130,8 @@ signal({
 })
 ```
 
-Looks better, yet we can make it better - pass a callback
-function with one parameter - current signal's value, and assign this
-callback's result as a new value:
+Looks better, yet we can make it better - pass a callback function with one
+parameter - current signal’s value, and assign result as a new value:
 
 ```js
 const signal = createSignal(user)
@@ -257,7 +255,7 @@ console.log(user().age) // 41
 
 ### `on` function
 
-This function accept a signal and a callback that should be called
+This function takes a signal and a callback that should be executed
 when the signal is changed. At this point, we should think
 about few things:
 
@@ -266,7 +264,8 @@ about few things:
    callbacks when a signal is executed as a "setter".
 
 Data structures go first. We'll use `Map` with signals as its keys and
-array of callbacks as its values. This map should
+array of callbacks as its values. It will allow us to quiclky find
+required callbacks. This map should
 be global for the whole module:
 
 ```
@@ -305,9 +304,8 @@ if (signalEffects) {
 
 ## What's next? 
 
-I plan to write one more post
-which will introduce a few improvements to our
-current signals, stay tuned in!
+I plan to write one more post which will introduce
+a few improvements to our current signals, so stay tuned in!
 
 ## Full source
 
