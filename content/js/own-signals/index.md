@@ -318,8 +318,6 @@ function ss(value) {
   function signal(v) {
     const isSetter = arguments.length > 0
 
-    // TODO: check for equality and don't trigger effects
-    //       when the actual value has not been changed
     if (isSetter) {
       if (typeof v === 'function') {
         _value = v(_value)
