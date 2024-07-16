@@ -5,7 +5,7 @@ date: 2024-06-26
 draft: true
 ---
 
-Allright, suppose you have Neovim and kickstart installed, you program
+Alright, suppose you have Neovim and kickstart installed, you program
 in vue and typescript, and you want to
 have all these yammi features that volar offers.
 
@@ -36,6 +36,24 @@ tsserver = {
   filetypes = {'vue', 'javascript', 'typescript'}
 }
 ```
+
+Also add this:
+
+```
+volar={}
+```
+
+You need to put the location of the the `@vue/typescript-plugin` is
+installed. To find out where it's installed, you can run this:
+
+```bash
+npm root -g
+```
+
+This command prints the path to the directory where global packages are
+installed (in my case it's `/usr/local/lib/node_modules`).
+
+
 
 
 
