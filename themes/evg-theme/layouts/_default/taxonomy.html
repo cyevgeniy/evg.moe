@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    <div class="container">
+    {{- partial "header.html" . -}}
+    <h2 id="tagname">{{.Title}}</h2>
+      {{ range .Paginator.Pages }}
+      {{ $permalink := .RelPermalink }}
+      <div class="post-item">
+        <a href="{{ .RelPermalink }}"> {{ .Title }}</a>
+        <p class="post-date">{{ .Date.Format .Site.Params.DateForm }}</p>
+        <!-- <p>This is what happens when you are a fucking thing</p> -->
+       </div>
+      {{ end }}
+  </div>
+  </body>
+</html>

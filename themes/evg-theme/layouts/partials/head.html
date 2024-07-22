@@ -1,0 +1,12 @@
+<head>
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ template "_internal/opengraph.html" . }}
+  <meta charset="utf-8">
+  {{ if .Params.description }}
+  <meta name="description" content="{{ .Params.description}}">
+  {{ end }}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link href="/main.css" rel="stylesheet" type="text/css" media="all">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{.Params.title}}</title>
+</head>

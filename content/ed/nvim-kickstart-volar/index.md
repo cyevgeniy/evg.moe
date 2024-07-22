@@ -2,10 +2,10 @@
 title: "Setup volar v2+ in neovim"
 tags: [neovim, vue, editors]
 date: 2024-06-26
-draft: true
+draft: false
 ---
 
-Alright, suppose you have Neovim and [kickstart](https://github.com/nvim-lua/kickstart.nvim) installed, you program
+Suppose you have Neovim and [kickstart](https://github.com/nvim-lua/kickstart.nvim) installed, you program
 in vue and typescript, and you want to
 have all these fancy features that [volar](https://volarjs.dev/) offers.
 
@@ -43,7 +43,7 @@ tsserver = {
 
 
 You need to set the location of where the `@vue/typescript-plugin` is
-installed. To find out where is it, run this:
+installed. To find out where is it, run this command:
 
 ```bash
 npm root -g
@@ -52,7 +52,7 @@ npm root -g
 This command prints the path to the directory where global packages are
 installed (on linux and mac, it's usually `/usr/local/lib/node_modules`).
 
-The last step - add volar server:
+The last step - add the volar server:
 
 ```lua
 local servers = {

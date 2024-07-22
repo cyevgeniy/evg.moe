@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    <div class="container">
+    {{- partial "header.html" . -}}
+    <h2 id="tagname">{{.Title}}</h2>
+    <ul id="list">
+        {{ range .Data.Terms.ByCount }}
+      <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span>{{ .Count }}</span></li>
+      {{ end }}
+    </ul>
+  </div>
+  </body>
+</html>
