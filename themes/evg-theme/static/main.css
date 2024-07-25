@@ -37,6 +37,10 @@ h4 {
 	margin-bottom: 7px;
 }
 
+.container h1, .container h2, .container h3, .container h4 {
+	text-align: center;
+}
+
 p, ul, ol, pre, img, blockquote {
 	margin-bottom: 30px;
 }
@@ -204,6 +208,10 @@ blockquote {
 
 .bg-black blockquote, .bg-black code {
 	color: black;
+}
+
+.bg-black a {
+	color: var(--c-yellow);
 }
 
 .fb {
