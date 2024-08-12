@@ -1,7 +1,7 @@
 ---
-title: "Using typescript's discriminated unions instead try-catch"
+title: "Using Typescript to force errors handling"
 date: 2024-07-24
-draft: true
+draft: false
 ---
 
 <div class="note shadow">
@@ -14,9 +14,10 @@ used to **force** you to handle exceptions.
 
 If a function can throw an error, it should be
 wrapped in `try/catch` block to be properly
-handled. However, in JS and TS, this **what**  can be
-ignored, which adds one more place where bugs
-may appear.
+handled.
+
+However, error handling  can be
+ignored, which adds more room for potential errors. 
 
 ```ts
 function getUserFromStorage(id: string) {
@@ -39,7 +40,7 @@ function printUserInfo(id: string) {
 ```
 
 The problem here is that we didn't check for errors
-when we retrieved user from our storage.
+when we retrieve user from our storage.
 Moreover, TS compiler **don't actually care**.
 
 Ideally, `printUserInfo` should handle possible errors:
@@ -62,8 +63,7 @@ function printUserInfo(id: string) {
 ## Discriminated unions
 
 A union type is a type that combines multiple types into one.
-A variable of a union type can store only values with those types,
-for example:
+A variable of a union type can store only values with those types:
 
 ```ts
 type mode = 'edit' | 'view' | number
@@ -116,20 +116,23 @@ if (typeof v === 'number')
 else
     console.log(v.toLowerCase())
 ```
+
+Take a look at the last example one more time; did you notice ```console.log(v.toLowerCase())```?
+
+It works because this statement is placed in the `else` branch of our check,
+so typescript knows that `v` is a string.
 </div>
 </div>
-
-Take a look at the last example one more time, did you notice ```console.log(v.toLowerCase())```?
-It works because this statement is placed in the `else` branch 
-
+ 
 
 ## Fixing the problem
 
-With discriminated unions, we can **force**
-a programmer to check whether the result is
-sucessful or not, but before let's recall what
-are discriminated unions in typescript.
+We can use union types and required type narrowing
+to make result checking mandatory - or our program won't be compiled.
 
+This is how it can be implemenented.
+
+First of all, we create two main types and their union:
 
 ```ts
 interface OkResult<T> {
@@ -143,25 +146,85 @@ interface FailResult {
 }
 
 type OkOrFail<T> = OkResult<T> | FailResult
+```
 
-function getUser(id: string): OkOrFail {
-  let result: OkOrFail<User>
+Each of these types has `ok` field, which we can use to narrow `OkOrFail` type
+to `OkResult` or `FailResult`:
 
-    const user = getUserFromStorage(id)
-    if (user === undefined)
-      result = { ok: false, error: 'User was not found' }
-    else
-      result = { ok: true, value: user }
-
-  return result
+```ts
+type User = {
+    name: string
+    email: string
 }
 
-function printUserInfo(id: string) {
-  const result = getUser(id)
+function getUser(id: number): OkOrFail<User> {
+  try {
+    const user = getUserFromDb(id)
 
-  if (result.ok)
-    console.log(`User name is ${result.value.name}`)
-  else
-    console.error(result.error)
+    return {
+      ok: true,
+      value: user,
+    }
+  }
+  catch {
+    return {
+      ok: false,
+      error: 'can\'t find a user'
+    }
+  }
 }
 ```
+
+We used `try/catch` to return `OkResult` or `FailResult`, so our function
+**doesn't throw errors**.
+
+It returns union type instead, and in order to
+work with the returned error we need to **narrow result** to `OkResult` type:
+
+```ts
+const u = getUser(1)
+
+// Type Error!
+// If u is `FailResult`, it doesn't have the `value` field!
+console.log(u.value)
+
+// Now everything is ok, we narrow result down to `OkResult` type
+if (u.ok)
+  console.log(u.value)
+```
+
+Always returning literal objects is too much to type, so we can create
+helper functions for this:
+
+```ts
+function ok<T>(value: T): OkResult<T> {
+  return {
+    ok: true,
+    value,
+  }
+}
+
+function fail(error: string): FailResult {
+  return {
+    ok: false,
+    error,
+  }
+}
+```
+
+And then our `getUser` can be refactored:
+
+```ts
+function getUser(id: number): OkOrFail<User> {
+  try {
+    const user = getUserFromDb(id)
+
+    return ok(user)
+  }
+  catch {
+    return fail('can\'t find a user')
+  }
+}
+```
+
+That's it, I hope you liked this article, good luck!
