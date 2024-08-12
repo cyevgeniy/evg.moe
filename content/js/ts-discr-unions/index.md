@@ -2,6 +2,7 @@
 title: "Using Typescript to force errors handling"
 date: 2024-07-24
 draft: false
+tags: ['typescript', 'programming']
 ---
 
 <div class="note shadow">
