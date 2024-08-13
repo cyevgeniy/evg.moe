@@ -102,7 +102,7 @@ nav {
 	margin-top: 1rem;
 }
 
-.nav-button {
+.nav-button, .button {
 	padding-top: 0.2rem;
 	padding-bottom: 0.2rem;
 	padding-left: 0.5rem;
@@ -111,17 +111,24 @@ nav {
 	border-radius: 0.5rem;
 	font-weight: 500;
 	color: black;
-	background-color: var(--c-yellow);
 	border-right: 2px solid black;
 	border-bottom: 2px solid black;
 	text-decoration: none;
 }
 
-.nav-button:active {
+.nav-button:active, .button:active {
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	margin-top: 1px;
 	margin-left: 1px;
+}
+
+.nav-button {
+	background-color: var(--c-yellow);
+}
+
+.button {
+	background-color: var(--c-yellow);
 }
 
 code {
@@ -243,4 +250,38 @@ blockquote {
 
 .shadow {
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.projects {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+}
+
+.project-card {
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 16px;
+}
+
+.project-card .button {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: fit-content;
+	background-color: #b8f331;
+	color: black;
+	border-color: green;
+}
+
+.project-card > h2 {
+	margin-top: 0;
+	text-align: center;
+}
+
+.project-card > img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

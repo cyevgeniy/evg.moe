@@ -1,0 +1,45 @@
+{
+	"list": [
+		{
+			"name": "Lmst",
+			"button": "Explore",
+			"url": "http://a-lmst.netlify.app",
+			"description": "Opionated mastodon web client without third-party dependencies",
+			"points": [
+				"No third-party dependencies",
+				"Small bundle size",
+				"Clean user interface"
+			]
+		},
+		{
+			"name": "Orasql.ru",
+			"image": "/img/logo-orasql.png",
+			"button": "Go to the tutorial",
+			"url": "https://orasql.ru",
+			"description": "Oracle tutorial in Russian.",
+			"points": [
+				"Beginner-friendly",
+				"Example-based tutorial",
+				"Best practices"
+			]
+		},
+		{
+			"name": "Comments-only colorscheme for Sublime Text",
+			"description": "Sublime text colorscheme without syntax highlighting",
+			"image": "/img/logo-comments-only.png"
+		},
+		{
+			"url": "https://github.com/cyevgeniy/pwm",
+			"button": "More about pwm",
+			"name": "Pwm",
+			"description": "Command-line password manager. Cross-platform, easy to use."
+		},
+		{
+			"url": "https://cyevgeniy.github.io/luadocs",
+			"image": "/img/logo-luadocs.png",
+			"button": "Go to luadocs",
+			"name": "Luadocs",
+			"description": "Lua reference manual in the most readable form at this moment"
+		}
+	]
+}
