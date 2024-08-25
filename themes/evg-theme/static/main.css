@@ -2,6 +2,7 @@
 	--c-yellow: #f8df00;
 	--c-gray: #f8f8f8;
 	--c-black: #1e2425;
+	--c-green: #b8f331;
 }
 
 * {
@@ -254,9 +255,15 @@ blockquote {
 
 .projects {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	border-top: 1px solid gray;
 	border-left: 1px solid gray;
+}
+
+@media screen and (min-width: 640px) {
+	.projects {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 .project-card {
@@ -270,7 +277,7 @@ blockquote {
 	margin-right: auto;
 	display: block;
 	width: fit-content;
-	background-color: #b8f331;
+	background-color: var(--c-green);
 	color: black;
 	border-color: green;
 }
