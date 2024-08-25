@@ -4,10 +4,9 @@
 			"name": "Lmst",
 			"button": "Explore",
 			"url": "http://a-lmst.netlify.app",
-			"description": "Opionated mastodon web client without third-party dependencies",
+			"description": "Opionated mastodon web client without third-party dependencies.",
 			"points": [
-				"No third-party dependencies",
-				"Small bundle size",
+				"Small bundle size (**less than 10&nbsp;kB**)",
 				"Clean user interface"
 			]
 		},
@@ -37,9 +36,9 @@
 		{
 			"url": "https://cyevgeniy.github.io/luadocs",
 			"image": "/img/logo-luadocs.png",
-			"button": "Go to luadocs",
+			"button": "Explore",
 			"name": "Luadocs",
-			"description": "Lua reference manual in the most readable form at this moment"
+			"description": "Lua reference manual in the **most readable** form at this moment"
 		}
 	]
 }

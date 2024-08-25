@@ -14,9 +14,11 @@
     
     {{ if .points }}
 
-      {{ range .points}}
-        <li> {{ . | markdownify }} </li>
-      {{ end }}
+      <ul>
+        {{ range .points}}
+          <li> {{ . | markdownify }} </li>
+        {{ end }}
+      </ul>
 
     {{ end }}
 
