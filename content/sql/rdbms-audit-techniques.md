@@ -2,7 +2,7 @@
 title: "Audit techniques in RDBMS"
 date: 2021-12-26
 toc: true
-draft: true
+draft: false
 ---
 
 This article will tell you about some
