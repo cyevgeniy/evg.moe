@@ -148,6 +148,12 @@ pre > code {
 	color: black;
 }
 
+.post-item {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
 .post-item>a {
 	font-weight: 600;
 	font-size: 24px;
@@ -160,12 +166,6 @@ pre > code {
 
 .post-item {
 	margin-bottom: 2rem;
-}
-
-.post-item > .post-date {
-	margin-top: 0.1rem;
-	font-style: italic;
-	color: lightslategrey;
 }
 
 a, a:visited {
