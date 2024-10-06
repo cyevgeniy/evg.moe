@@ -1,8 +1,13 @@
 <header id="header">
   <nav>
+    <a href="/" class="logo">
+      <p class="logo-text"> Evg </p>
+      <p class="logo-subtitle"> You are <b>awesome</b></p>
+
+    </a>
     {{ range .Site.Menus.main }}
     {{ $text := print .Name | safeHTML }}
-    <a  href="{{ .URL }}" class="nav-button">{{$text}} </a>
+    <a  href="{{ .URL }}" class="">{{$text}} </a>
     {{ end }}
   </nav>
 </header>
