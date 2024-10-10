@@ -9,8 +9,8 @@
       {{ range .Paginator.Pages }}
       {{ $permalink := .RelPermalink }}
       <div class="post-item">
+        <span>📘</span>
         <a href="{{ .RelPermalink }}"> {{ .Title }}</a>
-        <p class="post-date">{{ .Date.Format .Site.Params.DateForm }}</p>
         <!-- <p>This is what happens when you are a fucking thing</p> -->
        </div>
       {{ end }}

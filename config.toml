@@ -7,10 +7,6 @@ paginate=100
     DateForm = "2006.01.02"
 
 [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-[[menu.main]]
     name = "Projects"
     url = "/projects"
     weight =4
