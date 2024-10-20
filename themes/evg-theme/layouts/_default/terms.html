@@ -5,12 +5,12 @@
   <body>
     <div class="container">
     {{- partial "header.html" . -}}
-    <h2 id="tagname">{{.Title}}</h2>
-    <ul id="list">
+    <h2>{{.Title}}</h2>
         {{ range .Data.Terms.ByCount }}
-      <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span>{{ .Count }}</span></li>
+      <div class="post-item">
+        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span>{{ .Count }}</span></li>
+      </div>
       {{ end }}
-    </ul>
   </div>
   </body>
 </html>

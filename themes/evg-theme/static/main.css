@@ -183,13 +183,6 @@ blockquote {
 	background-color: blanchedalmond;
 }
 
-#tags {
-	margin-top: 4rem;
-	display: flex;
-	gap: 1rem;
-	flex-wrap: wrap;
-}
-
 .bg-yellow {
 	background-color: var(--c-yellow);
 }

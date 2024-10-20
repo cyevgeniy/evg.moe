@@ -4,16 +4,9 @@
   <body>
     <div class="container">
     {{- partial "header.html" . -}}
-      {{ range where .Paginator.Pages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
-        {{ $permalink := .RelPermalink }}
-        <div class="post-item">
-          <span>📘</span>
-          <a href="{{ .RelPermalink }}"> {{ .Title }}</a>
-          
-          <!-- <p>This is what happens when you are a fucking thing</p> -->
-         </div>
-      {{ end }}
+      {{ .Content }}
+    {{- partial "footer.html" . -}}
+
     </div>
-    <footer></footer>
   </body>
 </html>
