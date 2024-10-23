@@ -6,8 +6,8 @@ tags: [css]
 
 Recently I was needed to add a quick tooltip to a `span` element
 in a project with vuetify and vue2. My first try was to use
-vuetify's `v-tooltip`, but, you know, it **hasn't  been working
-after 3 minutes of work**. 
+vuetify's `v-tooltip`, but, you know, it **didn't work
+after 3 minutes of copy-pasting code samples from docs**. 
 
 So I just googled something like "HTML native tooltip", and found
 an example of a tooltip on stackoverflow, which impressed me with
