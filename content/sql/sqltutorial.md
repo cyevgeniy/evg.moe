@@ -385,6 +385,7 @@ information from tables and how we can save it to external
 file using SQLite command prompt.
 
 <div class="fb bg-yellow">
+<div class="container">
 
 ## Summary
 
@@ -396,7 +397,7 @@ file using SQLite command prompt.
 - To execute a sql script, `.read sqlfile.sql` command is used
 - To save changes back to file, `.save` command is used
 - `.tables` command shows list of tables in the current database
-</div>
+</div></div>
 
 In this chapter, we gonna look at how to retrieve data
 from the database.
@@ -690,6 +691,7 @@ Additional info about command-line features of SQLite
 can be found at [Official docs](https://www.sqlite.org/cli.html).
 
 <div class="fb bg-yellow">
+<div class="container">
 
 ## Summary
 
@@ -697,7 +699,7 @@ can be found at [Official docs](https://www.sqlite.org/cli.html).
 - To change the default calculation order, we can use brackets
   for grouping conditions
 - In SQLite, it is easy to export data into a CSV file
-</div>
+</div></div>
 
 Sometimes we want to get result in specific order,
 and `order by` clause does exactly this.
@@ -893,6 +895,7 @@ the `user_id` column is first and the `order_date` is
 second.
 
 <div class="fb bg-yellow">
+<div class="container">
 
 ## Summary
 
@@ -901,7 +904,7 @@ second.
   ascending order - this value is assumed to be the default.
 - It is the bad pattern to order rows by specifying columns
   order - it is better to list columns by their names.
-</div>
+</div></div>
 
 Joins are some of the most essential concepts of SQL.
 They are used for querying data from multiple tables. In
@@ -1391,13 +1394,14 @@ cross join orders o
 ```
 
 <div class="fb bg-yellow">
+<div class="container">
 
 ## Summary
 
 - Joins allow us to query data from multiple tables
 - We can join subqueries
 - Join conditions can be complex
-</div>
+</div></div>
 
 ## UNION, EXCEPT, INTERSECT
 
