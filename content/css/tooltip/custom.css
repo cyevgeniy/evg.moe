@@ -1,0 +1,23 @@
+[data-tooltip]:hover::after {
+    display: block;
+    position: absolute;
+    content: attr(data-tooltip);
+    border: 1px solid black;
+    background: #eee;
+    padding: .25em;
+    font-weight: 400;
+}
+
+.tooltip {
+    font-weight: 600;
+    cursor: help;
+    width: fit-content;
+}
+
+.demo {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}

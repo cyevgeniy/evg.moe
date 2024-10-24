@@ -8,5 +8,8 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link href="/main.css" rel="stylesheet" type="text/css" media="all">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ with .Resources.GetMatch "*.css" }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
 	<title>{{.Params.title}}</title>
 </head>
