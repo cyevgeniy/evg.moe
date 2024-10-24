@@ -9,15 +9,15 @@ in a project with vuetify and vue2. My first try was to use
 vuetify's `v-tooltip`, but, you know, it **didn't work
 after 3 minutes of copy-pasting code samples from docs**. 
 
+So I just googled something like "HTML native tooltip", and found
+an example of a tooltip on stackoverflow, which impressed me with
+its small amount of code and nice results.
+
 ## Demo
 
 <div class="demo">
   <div class="tooltip" data-tooltip="Hi there!">Hover me</div>
 </div>
-
-So I just googled something like "HTML native tooltip", and found
-an example of a tooltip on stackoverflow, which impressed me with
-its small amount of code and nice results.
 
 The solution is to use data-attribute and `attr()` function:
 
