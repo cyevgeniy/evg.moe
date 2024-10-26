@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html>
-  {{- partial "head.html" . -}}
-  <body>
-    <main>
-
-      <div class="container">
-        {{- partial "header.html" . -}}
-      </div>
-      <div class="container">
+{{ define "main" }}
         <h1> Projects </h1>
         {{- partial "projects.html" . -}}
-        {{- partial "footer.html" . -}}
-      </div>
-    </main>
-  </body>
-</html>
+{{ end }}

@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-  {{- partial "head.html" . -}}
-  <body>
-    <div class="container">
-    {{- partial "header.html" . -}}
+{{ define "main" }}
     <h1>{{ .Title }}</h1>
     {{ .Content }}
-
-    
     <div>
       {{ range where .Paginator.Pages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
       {{ $permalink := .RelPermalink }}
@@ -17,6 +10,4 @@
        </div>
       {{ end }}
     </div>
-    </div>
-  </body>
-</html>
+{{ end }}
