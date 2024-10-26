@@ -1,16 +1,19 @@
-
 <!DOCTYPE html>
 <html>
-  {{- partial "head.html" . -}}
-  <body>
-    <div class="container">
+{{- partial "head.html" . -}}
+
+<body>
+  <div class="container">
     {{- partial "header.html" . -}}
     <h2>{{.Title}}</h2>
-        {{ range .Data.Terms.ByCount }}
+    <main>
+      {{ range .Data.Terms.ByCount }}
       <div class="post-item">
         <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span>{{ .Count }}</span></li>
       </div>
       {{ end }}
   </div>
-  </body>
+  </main>
+</body>
+
 </html>

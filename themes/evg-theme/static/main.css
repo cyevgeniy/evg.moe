@@ -10,6 +10,10 @@
 	padding: 0;
 }
 
+main {
+	padding-bottom: 3rem;
+}
+
 h1 {
 	font-size: 37px;
 	line-height: 58px;
@@ -168,10 +172,6 @@ pre > code {
 
 a, a:visited {
 	color: darkblue;
-}
-
-footer {
-	margin-top: 3rem;
 }
 
 blockquote {
