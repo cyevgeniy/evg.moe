@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    <main>
+      <div class="container">
+        {{- partial "header.html" . -}}
+      </div>
+      <div class="container">
+        {{ range where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
+        {{ $permalink := .RelPermalink }}
+            <div class="post-item">
+            <span>📘</span>
+            <a href="{{ .RelPermalink }}"> {{ .Title }}</a>
+            
+            <!-- <p>This is what happens when you are a fucking thing</p> -->
+            </div>
+        {{ end }}
+      </div>
+    </main>
+  </body>
+</html>
+
+
