@@ -11,6 +11,8 @@ It's so common and easy(3 chars among 8 in `coalesce` and 6 in `decode`)
 to write it in queries, but there is one thing you should keep in mind when
 using `NVL`.
 
+
+<!--more-->
 First, let's face the problem:
 
 ```sql

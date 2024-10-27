@@ -171,15 +171,28 @@ pre > code {
 	color: black;
 }
 
-.post-item {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
+
+.post-item h2 {
+	margin-top: 0;
 }
 
-.post-item>a {
-	font-weight: 500;
-	font-size: 16px;
+.post-link {
+	text-decoration: none;
+	color: black;
+	border-bottom: 1px solid lightgray;
+}
+
+.post-link:hover, .post-link:visited:hover {
+	color: rgb(182, 25, 25);
+}
+
+.post-link:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.post-image {
+	display: block;
 }
 
 .post-item>p {

@@ -14,6 +14,8 @@ new websites was a great adventure. I hope you'll enjoy this post and maybe you'
 find some inspiration and new ideas, or just have fun. Moreover, during
 this tutorial, you'll learn basic HTML, most of which is still relevant today.
 
+<!--more-->
+
 ## Tools
 
 Websites were created mostly in two ways - with the help of

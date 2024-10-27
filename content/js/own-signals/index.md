@@ -7,6 +7,8 @@ toc: true
 
 In this article, we'll implement our own signals.
 
+<!--more-->
+
 ## What are signals
 
 Signals are objects that incapsulate access to

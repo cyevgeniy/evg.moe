@@ -5,6 +5,7 @@ date: 2023-08-10T21:52:43+03:00
 draft: false
 toc: true
 images: [/js/lwvc-input/base-input-2.png]
+featured_image: "/js/lwvc-input/base-input-2.png"
 tags: ["vue", "tech"]
 ---
 

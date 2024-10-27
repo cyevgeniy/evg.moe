@@ -3,6 +3,7 @@ title: "Emacs: How to add bookmarks to files and directories"
 date: 2024-03-06
 description: "Emacs: How to add bookmarks to files and directories"
 tags: ["editors", "emacs"]
+show_full: true
 ---
 
 

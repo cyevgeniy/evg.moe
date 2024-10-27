@@ -4,6 +4,10 @@ date: 2021-12-27
 draft: true
 ---
 
+What are views in the Oracle database.
+
+<!--more-->
+
 ## What are views
 
 Views are objects in a database, which:

@@ -5,7 +5,7 @@ draft: false
 tags: ["editors", "sublime"]
 ---
 
-Sublime Text basic usage.
+<!--more-->
 
 ## Tabs
 

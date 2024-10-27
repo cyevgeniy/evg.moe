@@ -5,6 +5,8 @@ date: 2024-06-26
 draft: false
 ---
 
+<!--more-->
+
 Suppose you have Neovim and [kickstart](https://github.com/nvim-lua/kickstart.nvim) installed, you program
 in vue and typescript, and you want to
 have all these fancy features that [volar](https://volarjs.dev/) offers.

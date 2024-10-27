@@ -10,6 +10,8 @@ This is the small tutorial about SQL.
 I hope it will help you to solve problems and make
 it easy for you to understand SQL. 
 
+<!--more-->
+
 <div class="note">
 
 **Note:** Work in progress. ☜(ﾟヮﾟ☜)

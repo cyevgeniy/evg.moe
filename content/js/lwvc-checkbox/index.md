@@ -5,6 +5,7 @@ date: 2023-09-23
 toc: true
 description: "Creating a checkbox component in Vue"
 images: [/js/lwvc-checkbox/checkbox.png]
+featured_image: "/js/lwvc-checkbox/checkbox.png"
 tags: ["vue", "tech"]
 ---
 

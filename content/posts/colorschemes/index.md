@@ -2,6 +2,7 @@
 title: "Colorschemes that I like and use"
 tags: ["editors", "colorscheme"]
 date: 2024-09-15
+show_full: true
 ---
 
 Here are the colorschemes that I like and use:

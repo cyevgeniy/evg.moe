@@ -2,6 +2,7 @@
 title: "SQL puzzle: Calendar"
 date: 2021-09-09
 tags: ['sql', 'oracle']
+show_full: true
 ---
 
 Found an interesting SQL puzzle: 

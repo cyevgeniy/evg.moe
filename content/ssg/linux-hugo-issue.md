@@ -8,6 +8,8 @@ draft: false
 Recently I was faced with a weird hugo behaviour on linux - it
 didn't update the content of the site after running the dev server.
 
+<!--more-->
+
 First thing that I tried is to run hugo with disabled "Fast Render Mode":
 
 ```bash

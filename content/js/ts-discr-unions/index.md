@@ -3,6 +3,9 @@ title: "Using Typescript to force errors handling"
 date: 2024-07-24
 draft: false
 tags: ['typescript', 'programming']
+summary: >
+  Typescript's discriminated unions may be
+  used to **force** you to handle exceptions.
 ---
 
 <div class="note shadow">

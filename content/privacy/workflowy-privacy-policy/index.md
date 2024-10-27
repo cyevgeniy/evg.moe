@@ -10,6 +10,8 @@ and as [I wrote earlier]({{< ref "/posts/workflowy-review" >}}) , I'm done with 
 Yesterday, I read their privacy policy more carefully, and, you
 know, it's full of gems, check it out:
 
+<!--more-->
+
 Under the **2. Data that we use, receive, collect, process, share or store and how we may use it**,
 they have a few nice points:
 

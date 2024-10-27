@@ -4,6 +4,7 @@ description: "How to check if an object is empty in Javascript"
 date: 2023-07-02T17:34:52+03:00
 draft: false
 images: [/js/js-is-object-empty/thumbnail.png]
+featured_image: "/js/js-is-object-empty/thumbnail.png"
 tags: [js, programming]
 ---
 

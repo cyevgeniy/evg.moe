@@ -7,6 +7,8 @@ date: 2024-03-10
 Asciidoctor is a markup language similar to markdown, but
 more readable.
 
+<!--more-->
+
 ## Installation
 
 Asciidoctor has multiple "backends", so you can choose from

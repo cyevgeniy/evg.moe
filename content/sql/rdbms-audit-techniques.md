@@ -11,7 +11,9 @@ which were performed on database tables.
 It is recommended to know SQL basics to understand
 some queries examples that are shown here, so if 
 you are unfamiliar with SQL, you can read a simple
-[SQL tutorial for beginners](/blog/sqltutorial).
+[SQL tutorial for beginners](/sql/sqltutorial).
+
+<!--more-->
 
 ## Why is audit needed?
 
