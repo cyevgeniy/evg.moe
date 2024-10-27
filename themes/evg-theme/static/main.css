@@ -303,3 +303,8 @@ tr, td, th {
 th {
 	font-weight: 600;
 }
+
+#tags {
+	display: flex;
+	gap: 1rem;
+}
