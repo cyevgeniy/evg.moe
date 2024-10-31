@@ -14,7 +14,7 @@ Resulting HTML is a mess.
 
 For example, simple code listing is wrapped in **three** divs:
 
-```
+```html
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-vue" data-lang="vue">&lt;script setup lang='ts'&gt;
