@@ -8,11 +8,7 @@
     <h2 id="tagname">{{.Title}}</h2>
       {{ range .Paginator.Pages }}
       {{ $permalink := .RelPermalink }}
-      <div class="post-item">
-        <span>📘</span>
-        <a href="{{ .RelPermalink }}"> {{ .Title }}</a>
-        <!-- <p>This is what happens when you are a fucking thing</p> -->
-       </div>
+      {{- partial "post-item.html" . -}}
       {{ end }}
   </div>
   </body>

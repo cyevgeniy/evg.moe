@@ -1,14 +1,6 @@
 {{ define "main" }}
         {{ range where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
         {{ $permalink := .RelPermalink }}
-            <div class="post-item">
-                 <h2><a href="{{ .RelPermalink }}" class="post-link">{{ .Title }}</a></h2>
-                {{ with .Params.featured_image }}<img src="{{ . }}" class="post-image">{{ end }}
-                {{ if .Params.show_full }}
-                <p> {{ .Content }}</p>
-                {{ else }}
-                    <p>{{ .Summary}} </p>
-                {{ end }}
-            </div>
+        {{- partial "post-item.html" . -}}
         {{ end }}
 {{ end }}
