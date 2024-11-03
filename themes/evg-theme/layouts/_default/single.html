@@ -7,6 +7,10 @@
         {{.TableOfContents}}
         {{ end}}
 
+        {{ if .Params.featured_image }}
+                <img src="{{.Params.featured_image}}">
+        {{ end}}
+
         {{ .Content }}
 
       {{- partial "tags.html" . -}}
