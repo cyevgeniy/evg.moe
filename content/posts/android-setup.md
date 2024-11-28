@@ -48,3 +48,9 @@ A good calendar app. Nothing more, nothing less.
 
 - [Download from F-Droid](https://f-droid.org/en/packages/ws.xsoh.etar/)
 - [Github](https://github.com/Etar-Group/Etar-Calendar)
+
+## Foobar
+
+The old good foobar music player.
+
+- [official site](https://www.foobar2000.org/mobile)
