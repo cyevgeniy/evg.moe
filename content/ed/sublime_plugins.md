@@ -6,6 +6,9 @@ tags: ["editors", "sublime"]
 show_full: true
 ---
 
-- Sublime lsp - LSP support
-- WordingStatus - Shows count of words, characters and other useful statistics for a document
-- Create files and directories with a keyboard shortcuts
+Essentially my Sublime text setup requires only three things:
+
+- Terminus - terminal emulator right in the editor. The nice thing is that you
+  can open terminal in a special panel, or you can open a terminal in a new tab.
+- Sublime LSP - LSP support
+- WordingStatus - Shows words count and statistics for a document.
