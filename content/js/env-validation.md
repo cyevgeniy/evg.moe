@@ -85,8 +85,8 @@ ZodError: [
 
 ## Keep in mind
 
-When you add such thing to your project, you take additional responsibility
-for updating validation rules and/or keeping documentation up to date.
+**When you add such thing to your project, you take additional responsibility
+for updating validation rules.**
 
 I Hope it was useful to someone, good luck.
 
