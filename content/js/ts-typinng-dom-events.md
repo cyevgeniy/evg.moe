@@ -1,11 +1,11 @@
 ---
-title: "How to type 'onClick'-like events in Typescript"
+title: "How to declare a type for 'onClick'-like events in Typescript"
 date: 2025-01-03
 tags: [typescript, programming]
 draft: true
 ---
 
-How to create types for all HTML elements' events, like
+In this article, I'll tell you how to create a type for all HTML elements' events, like
 `onClick`, `onDragstart`, etc.
 
 <!--more-->
@@ -20,11 +20,15 @@ const component = CreateMyComponent({
 })
 ```
 
-For this, we need two things: types for html element events and template literal types.
+For this, **we need two things**: types for html element events and template literal types.
 
 ## HtmlElementEventMap
 
 This is the type that maps event names to their callback types.
+
+**How I've found it?** I searched for "typescript dom event types", and the second
+link redirected me to the [DOM manipulation](https://www.typescriptlang.org/docs/handbook/dom-manipulation.html) page in the typescript documentation.
+There was a link to DOM type definitions, where I searched for string "click".
 
 ```ts
 interface HTMLElementEventMap extends ElementEventMap, GlobalEventHandlersEventMap {
@@ -144,7 +148,7 @@ interface GlobalEventHandlersEventMap {
 
 ## Template literal types
 
-[Template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) allow us to use string interpolation in types declarations.
+[Template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) allow us to use string interpolation in type declarations.
 
 For example, this is how we can create a `onClick` literal type:
 
@@ -165,3 +169,6 @@ export type HTMLEventHandler = {
   [K in keyof HTMLElementEventMap as `on${Capitalize<K>}`]? : (evt: HTMLElementEventMap[K]) => void
 }
 ```
+
+We used [`Capitalize`](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#capitalizestringtype) helper type, which capitalizes the first character in a string.
+
