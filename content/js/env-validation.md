@@ -1,7 +1,7 @@
 ---
 title: ".env validation with zod"
 date: 2024-12-29
-draft: true
+draft: false
 tags: ["typescript", "validation", "programming", "zod"]
 ---
 
