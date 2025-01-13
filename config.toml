@@ -1,7 +1,7 @@
 baseURL = 'http://evg.moe'
 languageCode = 'en-us'
 theme="evg-theme"
-paginate=100
+paginate=10
 
 [params]
     DateForm = "2006.01.02"
@@ -29,7 +29,8 @@ paginate=100
     weight =7
 [markup]
   [markup.highlight]
-
-    style="emacs"
+    style=""
+    noHl=true
+    codeFences=false
   [markup.goldmark.renderer]
     unsafe = true # Allow HTML in md files

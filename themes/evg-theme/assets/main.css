@@ -1,0 +1,51 @@
+html {
+	font-size: 18px;
+}
+
+img {
+	max-width: 100%;
+}
+
+code {
+	font-size: 0.8rem;
+	color: red;
+}
+
+pre  {
+	font-size: 0.8rem;
+	padding: 6px;
+	background-color: #f8f8f8;
+	border: 1px solid lightgray;
+	overflow-x: auto;
+}
+
+pre > code {
+	color: black;
+}
+
+#header > nav {
+	display: flex;
+	gap: 6px;
+	background-color: lightblue;
+	padding: 4px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+table * {
+	font-size: 0.8rem;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr, td, th {
+	padding: 4px;
+}
+
+th {
+	font-weight: 600;
+}
