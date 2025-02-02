@@ -1,3 +1,6 @@
-{{ define "main"}}
-  {{ .Content }}
+{{ define "main" }}
+        {{ range where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
+        {{ $permalink := .RelPermalink }}
+        {{- partial "post-item.html" . -}}
+        {{ end }}
 {{ end }}

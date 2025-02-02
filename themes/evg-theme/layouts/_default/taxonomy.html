@@ -4,7 +4,7 @@
   {{- partial "head.html" . -}}
   <body>
     <div class="container">
-    {{- partial "header.html" . -}}
+    <a href="/">« Home </a> 
     <h2 id="tagname">{{.Title}}</h2>
       {{ range .Paginator.Pages }}
       {{ $permalink := .RelPermalink }}

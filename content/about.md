@@ -1,6 +1,5 @@
 ---
 Title: 'About me'
-hidden: true
 ---
 
 ## Now

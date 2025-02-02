@@ -1,5 +1,6 @@
 html {
 	font-size: 18px;
+	line-height: 1.5;
 }
 
 img {
@@ -15,7 +16,6 @@ pre  {
 	font-size: 0.8rem;
 	padding: 6px;
 	background-color: #f8f8f8;
-	border: 1px solid lightgray;
 	overflow-x: auto;
 }
 
@@ -23,11 +23,13 @@ pre > code {
 	color: black;
 }
 
-#header > nav {
-	display: flex;
-	gap: 6px;
-	background-color: lightblue;
-	padding: 4px;
+a {
+	text-underline-offset: 2px;
+}
+
+.container {
+	max-width: 700px;
+	margin: 4rem auto 7rem;
 }
 
 table, th, td {
