@@ -7,13 +7,15 @@ draft: true
 It's common to use package.json scripts to run commands in node-based
 projects, like this: `npm run dev`.
 
-To the point - I've started to use `make` in frontend projects, and I really like it. Here's an example of a Makefile for one of my projects at work:
+
+I've started to use `make` in my frontend projects, and I really like it.
+Here's an example of a Makefile for one of my projects at work:
 
 ```make
-devpod:
+devpod: # start a devcontainer and ssh into it
 	devpod up .
 	devpod ssh lmst
-dev:
+dev: # run in a dev mode
 	npx vite
 type:
 	npx tsc --noEmit
@@ -27,18 +29,19 @@ test:
 Here's why I think it's better than scripts in a `package.json` file:
 
 - Multi-line commands
-- Comments
+- Comments. Each line can be commented. You can describe **why** you run one command
+  before another. In a `package.json` file, all your commands are placed on a single line.
 - Works great with non node-based commands. In one of our projects we use selenium for integration tests, and I don't blowing my mind every time struggling to remember how to install all dependencies and run tests.
 
-For development I use devcontainers, and as you can see, connecting to a devcontainer is pretty much to type:
+For development I use devcontainers, and connecting to a devcontainer is pretty much to type:
 
 ```bash
 devpod up .
 devpod ssh projname
 ```
 
-Now I'm just typing `make devpod`, and after a few seconds I'm inside =>.
+Now I'm just typing `make devpod`, and after a few seconds I'm inside a devcontainer.
 
-I've faced with one cons, though - Windows support. It will require additional steps to setup make. To handle this issue, we use a simple rule - base commands should be always available via `npm run`, such as
-`dev`, `build`, `test`, and in the Makefile we duplicate them + add all other commands that may be useful.
-
+*In a team, this approach will work only if each of team's members
+uses a platform with a `make` available. On linux and Mac, it's already
+included. On a Windows system you need to install `make` by yourself.*
