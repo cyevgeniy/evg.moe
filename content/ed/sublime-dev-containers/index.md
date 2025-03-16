@@ -30,7 +30,7 @@ For this, we'll use a few tools:
 - Docker
 
 We use devpod for just one thing - port forwarding from a container to a host.
-Docker is used as a containers. (Podman didn't succeed because it can't detect
+Docker is used for containers. (Podman didn't succeed because it can't detect
 changes to the disk and so vite didn't reload).
 
 ## Workflow
@@ -46,3 +46,10 @@ Run `devpod ssh project-name`
 Open terminus panel.
 
 Run `npx tsc --noEmit --watch`.
+
+## Workflow (Updated)
+
+Now I'm using [make]({{< ref "/js/make-for-frontend" >}}) - it's much less to type!
+
+Just `make devpod` to run and connect to a container, and `make type-watch` to
+run type checks in the watch mode.
