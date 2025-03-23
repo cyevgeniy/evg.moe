@@ -7,6 +7,7 @@ toc: true
 images: [/js/lwvc-input/base-input-2.png]
 featured_image: "/js/lwvc-input/base-input-2.png"
 tags: ["vue", "tech"]
+icon: 'static/icons/vue.svg'
 ---
 
 In this post, we'll create an input component for vue 3.

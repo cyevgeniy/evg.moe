@@ -5,6 +5,7 @@ date: 2023-12-03
 draft: false
 toc: true
 tags: ["js", "tech"]
+icon: 'static/icons/js.svg'
 ---
 
 In this article, I'll show you how you can easily focus on the first

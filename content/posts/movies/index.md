@@ -1,6 +1,7 @@
 ---
 title: Movies list, part I
 date: 2025-03-10
+icon: "static/icons/video.svg"
 ---
 
 This is the list of movies I've watched and liked.

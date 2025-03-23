@@ -6,6 +6,7 @@ draft: false
 images: [/js/js-is-object-empty/thumbnail.png]
 featured_image: "/js/js-is-object-empty/thumbnail.png"
 tags: [js, programming]
+icon: 'static/icons/js.svg'
 ---
 
 The problem: we want to check if an object is empty.

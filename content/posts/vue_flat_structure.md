@@ -3,6 +3,7 @@ title: "Vue js: on keeping all components in a single directory"
 date: 2023-05-04T19:24:11+03:00
 description: "On keeping Vue components in a single directory"
 draft: false
+icon: "static/icons/vue.svg"
 ---
 
 The point of article: keep components in one single

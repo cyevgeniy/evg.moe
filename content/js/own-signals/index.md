@@ -3,6 +3,7 @@ title: "Create signals in plain JS"
 tags: ["js", "programming"]
 date: "2024-07-10"
 toc: true
+icon: "static/icons/js.svg"
 ---
 
 In this article, we'll implement our own signals.

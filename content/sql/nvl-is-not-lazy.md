@@ -2,6 +2,7 @@
 title: 'Oracle: nvl is not lazy'
 tags: ['oracle', 'sql', 'plsql']
 date: 2024-09-02
+icon: 'static/icons/db.svg'
 ---
 
 <!-- Originally written 2021-07-11 -->

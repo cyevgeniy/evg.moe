@@ -5,6 +5,7 @@ date: 2023-11-14
 toc: true
 draft: false
 tags: ["vue", "tech"]
+icon: 'static/icons/vue.svg'
 ---
 
 The problem: you want to make sure that a component is

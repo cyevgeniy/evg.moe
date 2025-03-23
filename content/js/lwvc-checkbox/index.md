@@ -7,6 +7,7 @@ description: "Creating a checkbox component in Vue"
 images: [/js/lwvc-checkbox/checkbox.png]
 featured_image: "/js/lwvc-checkbox/checkbox.png"
 tags: ["vue", "tech"]
+icon: 'static/icons/vue.svg'
 ---
 
 In this post, we'll create a checkbox component with Vue.
