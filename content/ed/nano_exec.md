@@ -3,6 +3,7 @@ title: "Execute commands in nano"
 date: 2023-04-11T18:10:14+03:00
 draft: false
 tags: ["editors", "nano"]
+icon: "/static/icons/editor.svg"
 ---
 
 In nano, it's trivial to execute command and paste command's output to the

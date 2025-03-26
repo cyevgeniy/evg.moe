@@ -4,6 +4,7 @@ date: 2023-06-29T08:38:28+03:00
 draft: false
 images: ['/posts/2023-06-30-vocaloid/vocaloid_miku_tmb.png']
 featured_image: '/posts/2023-06-30-vocaloid/vocaloid_meiko.png'
+icon: "/static/icons/music.svg"
 ---
 
 Vocaloid is a music genre where voice is synthesized

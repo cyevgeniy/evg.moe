@@ -3,6 +3,7 @@ title: ".env validation with zod"
 date: 2024-12-29
 draft: false
 tags: ["typescript", "validation", "programming", "zod"]
+icon: "static/icons/js.svg"
 ---
 
 **Summary**: You can use zod library to validate a `.env` file before building a

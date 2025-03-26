@@ -3,6 +3,7 @@ title: "How to declare a type for 'onClick'-like events in Typescript"
 date: 2025-01-03
 tags: [typescript, programming]
 draft: false
+icon: "static/icons/js.svg"
 ---
 
 In this article, I'll tell you how to create a type for all HTML elements' events, like

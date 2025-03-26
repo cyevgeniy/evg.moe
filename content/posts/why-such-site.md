@@ -3,6 +3,7 @@ title: "Why this site looks like this"
 date: 2025-01-13
 draft: true
 show_full: true
+icon: 'static/icons/js.svg'
 ---
 
 Yes, this site looks pretty ugly, considering my everyday job is to write (and

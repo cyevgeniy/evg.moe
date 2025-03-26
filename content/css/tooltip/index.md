@@ -2,6 +2,7 @@
 title: "Create a tooltip with CSS"
 date: 2024-10-21
 tags: [css]
+icon: "static/icons/js.svg"
 ---
 
 Recently I was needed to add a quick tooltip to a `span` element

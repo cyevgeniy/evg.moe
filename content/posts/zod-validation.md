@@ -4,6 +4,7 @@ description: "Using zod js library for form validation"
 date: 2023-05-25T22:52:02+03:00
 draft: false
 toc: true
+icon: "static/icons/js.svg"
 ---
 
 This post consists from two parts - the first one is

@@ -3,6 +3,7 @@ title: "Audit techniques in RDBMS"
 date: 2021-12-26
 toc: true
 draft: false
+icon: 'static/icons/db.svg'
 ---
 
 This article will tell you about some

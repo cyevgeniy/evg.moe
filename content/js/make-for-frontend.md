@@ -2,6 +2,7 @@
 title: 'Using make in frontend projects'
 date: 2025-03-07
 draft: false
+icon: "static/icons/js.svg"
 ---
 
 **Summary**: Using `make` can greatly simplify the maintainance of your project.

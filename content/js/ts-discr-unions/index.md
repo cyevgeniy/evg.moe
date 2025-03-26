@@ -6,6 +6,7 @@ tags: ['typescript', 'programming']
 summary: >
   Typescript's discriminated unions may be
   used to **force** you to handle exceptions.
+icon: "static/icons/js.svg"
 ---
 
 <div class="note shadow">

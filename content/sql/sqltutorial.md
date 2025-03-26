@@ -4,6 +4,7 @@ date: 2021-11-24
 toc: true
 draft: false
 tags: [sql, programming, db]
+icon: 'static/icons/db.svg'
 ---
 
 This is the small tutorial about SQL.

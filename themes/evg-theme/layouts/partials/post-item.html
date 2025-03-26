@@ -1,6 +1,9 @@
 <p class="pi">
-    {{ if .Params.icon }}
-       {{ readFile .Params.icon | safeHTML }}
+    {{ $pageIcon := .Params.icon }}
+    {{ $sectionIcon := $.Parent.Params.icon }}
+    {{ $icon := or $pageIcon $sectionIcon }}
+    {{ if $icon }}
+       {{ readFile $icon | safeHTML }}
     {{ else }}
         <span></span>
     {{ end}}

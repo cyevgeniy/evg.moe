@@ -3,6 +3,7 @@ title: "My Workflowy review"
 description: "My Workflowy review"
 date: 2023-05-16T22:47:11+03:00
 draft: false
+icon: "/static/icons/computer.svg"
 ---
 
 In this post I'll tell about my experience with Workflowy -

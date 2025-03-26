@@ -4,6 +4,7 @@ description: "How to use JSDoc for typing javascript code"
 date: 2023-06-07T22:35:19+03:00
 draft: false
 toc: true
+icon: "static/icons/js.svg"
 ---
 
 Typescript is a new standard in the Javascript world,
