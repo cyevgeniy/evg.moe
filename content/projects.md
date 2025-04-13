@@ -10,7 +10,7 @@ I've done a few things.
 Mastodon web client with a simple, website-like UI without
 any runtime dependencies. Not full featured, but **extremely small JS footprint**.
 
-- [Lmst](https://a-lmst.netlify.app)
+- [Lmst](https://lmst.online)
 - [Github](https://github.com/cyevgeniy/lmst)
 
 ## Orasql.ru
@@ -61,4 +61,3 @@ A minimalistic, very nice-looking theme for Hugo static site generator.
 Documentation generator for PL/SQL code.
 
 [Github](https://github.com/cyevgeniy/pldoc)
-
