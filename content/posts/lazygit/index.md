@@ -2,6 +2,7 @@
 title: Lazygit
 date: 2025-04-19
 draft: false
+tags: ["git"]
 ---
 
 ![lazygit.gif](lazygit.gif)
