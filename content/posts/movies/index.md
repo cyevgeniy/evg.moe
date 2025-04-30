@@ -8,6 +8,13 @@ tags: ["movies"]
 This is the list of movies I've watched and liked.
 I'm starting it right now (2025-03-10).
 
+## Pantheon
+
+![Pantheon](pantheon.jpg)
+
+This is the great one! I had been under impression from
+it for a few days after watching.
+
 ## Долгая ночь
 
 ![Долгая ночь](night.png)
