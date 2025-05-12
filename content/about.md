@@ -1,5 +1,6 @@
 ---
 Title: 'About me'
+hidden: true
 ---
 
 ## Now
@@ -15,3 +16,4 @@ Title: 'About me'
 
 - Email: hi@evg.moe
 - Github:  [cyevgeniy](https://github.com/cyevgeniy)
+- Linkedin: [linkedin.com/in/evgchbn](https://linkedin.com/in/evgchbn)

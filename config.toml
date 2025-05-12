@@ -5,6 +5,7 @@ paginate=10
 
 [params]
     DateForm = "2006.01.02"
+    showIcons=false
 
 [[menu.main]]
     name = "Home"

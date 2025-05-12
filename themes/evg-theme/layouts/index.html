@@ -1,4 +1,5 @@
 {{ define "main" }}
+        {{ .Content }}
         {{ range where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
         {{ $permalink := .RelPermalink }}
         {{- partial "post-item.html" . -}}

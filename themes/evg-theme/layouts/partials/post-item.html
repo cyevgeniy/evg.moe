@@ -1,12 +1,16 @@
+{{ if .Title }}
 <p class="pi">
     {{ $pageIcon := .Params.icon }}
     {{ $sectionIcon := $.Parent.Params.icon }}
+    {{ if .Site.Params.showIcons }}
     {{ $icon := or $pageIcon $sectionIcon }}
-    {{ if $icon }}
+    {{ if  $icon  }}
        {{ readFile $icon | safeHTML }}
     {{ else }}
         <span></span>
-    {{ end}}
+        {{ end}}
+        {{ end }}
 
     <a href="{{ .RelPermalink }}" class="post-link">{{ .Title }}</a>
 </p>
+{{ end }}

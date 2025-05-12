@@ -1,25 +1,7 @@
-Hi there, hope you'll enjoy this site.
+Hi, I'm Evgeny. **[More info about me](/about)**.
 
+I created [lmst.online](https://lmst.online), a web mastodon client,
+[orasql.ru](https://orasql.ru), a great resource to learn Oracle SQL (in Russian)
+and a few other [projects](/projects).
 
-## A few cool things from the website
-
-- [Vue: How to check for a specific parent component](/js/vue-check-parent-component)
-- [SQL tutorial](/sql/sqltutorial)
-- [JS: focus on the first input with an error](/js/set-focus-on-first-error)
-
-<a href="/blog" class="button" >**Read more cool things**</a>
-
-
-## Now
-
-- Working as a frontend dev
-- Still love SQL
-
-## Previously
-
-- Worked as a PL/SQL developer
-
-## Online
-
-- Email: hi@evg.moe
-- Github:  [cyevgeniy](https://github.com/cyevgeniy)
+All posts are listed below, or you may want to navigate by [tags](/tags).
