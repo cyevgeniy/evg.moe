@@ -20,7 +20,9 @@ Creating a file first is better, because in this case  your file
 will have an extension, and proper mode and syntax highlighting
 will be used when you'll start writing.
 
-## Sidebar position
+## Sidebar position (Not actual anymore)
+
+Update: In 2025, Sublime Text has an option to move the sidebar to the right side.
 
 In VSCode, the sidebar can be moved to the right side.
 This is very useful when you often toggle the sidebar (on small screens,
