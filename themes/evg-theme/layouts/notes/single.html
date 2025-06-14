@@ -1,0 +1,8 @@
+{{ define "main" }}
+        <a href="/notes">« Notes </a> 
+       
+        <div class="note-single">
+        {{ .Content }}
+        </div>
+      {{- partial "tags.html" . -}}
+{{ end }}

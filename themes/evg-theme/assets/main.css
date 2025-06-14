@@ -67,3 +67,24 @@ h4 {
 .pi span {
 	width: 16px;
 }
+
+ul.notes {
+	padding: 0;
+}
+
+ul.notes>li {
+	list-style: none;
+	margin: 20px 0px;
+	border-bottom: 0.5px solid lightgrey;
+	padding: 20px 0;
+}
+
+ul.notes>li .note-date {
+	font-size: 14px;
+	color: gray;
+	opacity: 0.6;
+}
+
+.note-single {
+	font-size: 20px;
+}

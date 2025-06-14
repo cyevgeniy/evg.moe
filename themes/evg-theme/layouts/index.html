@@ -1,6 +1,16 @@
 {{ define "main" }}
         {{ .Content }}
-        {{ range where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true" }}
+        <h2> Recent notes</h2>
+        <ul class="notes">
+        {{ range (first 2 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes")) }}
+                {{ partial "note-item.html" .}}
+        {{ end }}
+
+        </ul>
+       
+
+        <h2> Posts </h2>
+        {{ range (where (where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true") "Section" "ne" "notes") }}
         {{ $permalink := .RelPermalink }}
         {{- partial "post-item.html" . -}}
         {{ end }}

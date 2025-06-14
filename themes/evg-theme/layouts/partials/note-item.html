@@ -1,0 +1,5 @@
+{{ $permalink := .RelPermalink }}
+<li>
+    <a class="note-date" href="{{ $permalink }}"> {{ .PublishDate.Format "2006.01.02"  }}</a>
+    {{ .Content }}
+</li>

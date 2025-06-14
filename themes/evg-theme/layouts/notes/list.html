@@ -1,0 +1,10 @@
+{{ define "main" }}
+        <a href="/">« Home </a> 
+
+    <h2> Notes </h2>
+    <ul class="notes">
+        {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes" }}
+        {{ partial "note-item.html" .}}
+        {{ end }}
+    </ul>
+{{ end }}
