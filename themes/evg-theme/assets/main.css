@@ -88,3 +88,9 @@ ul.notes>li .note-date {
 .note-single {
 	font-size: 20px;
 }
+
+blockquote {
+  border-left: 2px solid lightgray;
+  padding-left: 16px;
+  font-style: italic;
+}
