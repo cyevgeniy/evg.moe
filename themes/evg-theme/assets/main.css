@@ -94,3 +94,7 @@ blockquote {
   padding-left: 16px;
   font-style: italic;
 }
+
+.small {
+	font-size: 14px;
+}

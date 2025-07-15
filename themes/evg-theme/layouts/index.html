@@ -1,6 +1,6 @@
 {{ define "main" }}
         {{ .Content }}
-        <h2> Recent notes</h2>
+        <h2> Recent notes <a href="/notes" class="small">all notes</a></h2>
         <ul class="notes">
         {{ range (first 2 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes")) }}
                 {{ partial "note-item.html" .}}
