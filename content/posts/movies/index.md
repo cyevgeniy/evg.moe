@@ -8,6 +8,12 @@ tags: ["movies"]
 This is the list of movies I've watched and liked.
 I'm starting it right now (2025-03-10).
 
+## Paprika
+
+![Paprika](paprika.png)
+
+I didn't understand it, but it was very interesting.
+
 ## Pantheon
 
 ![Pantheon](pantheon.jpg)
