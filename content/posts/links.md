@@ -18,3 +18,5 @@ but I'll continue to add links from all my bookmarks across multiple devices.
 - [https://t0.vc/](https://t0.vc/)
 - [https://sr.ht](https://sr.ht)
 - [https://antfu.me](https://antfu.me)
+- [https://wol.fm/](https://wol.fm/)
+- [https://ratfactor.com](https://ratfactor.com)
