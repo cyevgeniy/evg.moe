@@ -1,45 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Evgeny</title>
-	<style>
-		body {
-			margin: 16px;
-			font-size: 18px;
-			font-family: serif;
-		}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Evgeny</title>
+        <style>
+            body {
+                margin: 16px;
+                font-size: 18px;
+                font-family: sans-serif;
+            }
 
-		.links li {
-			margin-top: 12px;
-			font-size: 1.2em;
+            .card {
+                border: 6px solid black;
+                padding: 20px;
+                font-family: sans-serif;
+            }
 
-		}
+            .contactCard {
+                display: flex;
+                flex-direction: column;
+                text-decoration: none;
+                gap: 12px;
+                color: black;
+            }
 
-		h2 {
-			font-weight: 600;
-		}
+            .contactCard > .title {
+                font-weight: 600;
+                font-size: 24px;
+            }
 
-		.me {
-			font-size: 1.3em;
-			font-weight: 700;
-		}
-	</style>
-</head>
-<body>
-	<p class="me">Hi, I'm Evgeny.</p>
+            a.contactCard:hover {
+                background-color: black;
+                color: white;
+            }
 
-	<p>Now I'm working as a frontend engineer and still love SQL.</p>
-	<p>Previously I worked as a PL/SQL and Delphi engineer.</p>
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
 
+            @media screen and (min-width: 800px) {
+                .grid {
+                    grid-template-columns: 1fr 1fr;
+                }
 
-	<h2>Links:</h2>
-	<ul class="links">
-		<li>Email: <a href="mailto:hi@evg.moe">hi@evg.moe</a></li>
-		<li><a href="https://evg.posthaven.com"  target="_blank">Blog</a></li>
-		<li><a href="https://github.com/cyevgeniy"  target="_blank">Github</a></li>
-		<li><a href="https://linkedin.com/in/evgchbn" target="_blank">Linkedin</a></li>
-	</ul>
-</body>
+                body {
+                    padding: 0;
+                }
+            }
+
+            .content {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about {
+                margin-bottom: 20px;
+            }
+
+            .about h2 {
+                font-weight: 700;
+                font-size: 32px;
+            }
+
+            .mainP {
+                font-weight: 500;
+                font-size: 1.2em;
+            }
+
+            .secondaryP {
+                font-size: 1em;
+            }
+
+            .bg-yellow {
+                background-color: #ffe91f;
+            }
+
+            .bg-pink {
+                background-color: #ffccee;
+            }
+
+            .bg-cyan {
+                background-color: lightcyan;
+            }
+
+            .bg-lavender {
+                background-color: #ccccff;
+            }
+
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 12px;
+                border-bottom: 8px solid black;
+            }
+
+            header h1 {
+                font-size: 48px;
+                line-height: 1;
+                font-weight: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="content"><h1>EVGENY</h1></div>
+        </header>
+
+        <div class="content">
+            <div class="about card bg-yellow">
+                <h2>ABOUT ME</h2>
+                <p class="mainP">
+                    Now I'm working as a frontend engineer and still love SQL.
+                </p>
+                <p class="secondaryP">
+                    Previously I worked as a PL/SQL and Delphi engineer.
+                </p>
+            </div>
+            <div class="grid">
+                <a href="mailto:hi@evg.moe" class="card contactCard">
+                    <div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z"
+                            />
+                        </svg>
+                    </div>
+                    <div class="title">EMAIL</div>
+                    <div>hi@evg.moe</div>
+                </a>
+
+                <a
+                    href="https://github.com/cyevgeniy"
+                    target="_blank"
+                    class="card contactCard bg-pink"
+                >
+                    <div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                        >
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M3.5 15.668q.675.081 1 .618c.326.537 1.537 2.526 2.913 2.526H9.5m5.672-3.513q.823 1.078.823 1.936V21m-5.625-5.609q-.87.954-.869 1.813V21"
+                                />
+                                <path
+                                    d="M15.172 15.299c1.202-.25 2.293-.682 3.14-1.316c1.448-1.084 2.188-2.758 2.188-4.411c0-1.16-.44-2.243-1.204-3.16c-.425-.511.819-3.872-.286-3.359c-1.105.514-2.725 1.198-3.574.947c-.909-.268-1.9-.416-2.936-.416c-.9 0-1.766.111-2.574.317c-1.174.298-2.296-.363-3.426-.848c-1.13-.484-.513 3.008-.849 3.422C4.921 7.38 4.5 8.44 4.5 9.572c0 1.653.895 3.327 2.343 4.41c.965.722 2.174 1.183 3.527 1.41"
+                                />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="title">GITHUB</div>
+                    <div>@cyevgeniy</div>
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/evgchbn"
+                    target="_blank"
+                    class="card contactCard bg-cyan"
+                >
+                    <div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                        >
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"
+                                />
+                                <circle cx="4" cy="4" r="2" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="title">LINKEDIN</div>
+                    <div>@evgchbn</div>
+                </a>
+                <a
+                    href="https://evg.posthaven.com"
+                    target="_blank"
+                    class="card contactCard bg-lavender"
+                >
+                    <div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M4 6.633q.21-.085.503-.181A9.8 9.8 0 0 1 7.5 6a9.8 9.8 0 0 1 2.997.452q.293.096.503.181v10.88A11.8 11.8 0 0 0 7.5 17c-1.46 0-2.649.248-3.5.513zm8-1.748a9 9 0 0 0-.888-.337A11.8 11.8 0 0 0 7.5 4c-1.526 0-2.755.271-3.612.548a9 9 0 0 0-1.001.389a6 6 0 0 0-.357.18l-.025.014l-.009.005l-.003.002h-.001c-.002.002-.247.147-.002.002A1 1 0 0 0 2 6v13a1 1 0 0 0 1.51.86l-.005.003h.001l.002-.001l.001-.001l.037-.02q.056-.03.182-.09c.17-.078.43-.188.775-.3A9.8 9.8 0 0 1 7.5 19a9.8 9.8 0 0 1 2.997.451a7 7 0 0 1 .775.3a4 4 0 0 1 .223.112m0 0l-.002-.001l-.001-.001c.314.185.704.185 1.018 0l.037-.02q.056-.03.182-.09a7 7 0 0 1 .775-.3A9.8 9.8 0 0 1 16.5 19a9.8 9.8 0 0 1 2.997.451a7 7 0 0 1 .775.3a4 4 0 0 1 .219.11A1 1 0 0 0 22 19V6a1 1 0 0 0-.49-.86l-.002-.001h-.001l-.003-.003l-.01-.005l-.024-.014a6 6 0 0 0-.357-.18a9 9 0 0 0-1-.389A11.8 11.8 0 0 0 16.5 4c-1.525 0-2.755.271-3.612.548a9 9 0 0 0-.888.337m8 1.748v10.88A11.8 11.8 0 0 0 16.5 17c-1.46 0-2.649.248-3.5.513V6.633q.21-.085.503-.181A9.8 9.8 0 0 1 16.5 6a9.8 9.8 0 0 1 2.997.452q.293.096.503.181m.49.228l.005.002h-.001zm0 13l.004.002l-.002-.002"
+                            />
+                        </svg>
+                    </div>
+                    <div class="title">BLOG</div>
+                    <div>evg.posthaven.com</div>
+                </a>
+            </div>
+        </div>
+    </body>
 </html>
