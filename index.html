@@ -1,8 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/Person">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta itemprop="gender" content="male" />
+        <link itemprop="url" href="https://evg.moe" />
         <title>Evgeny</title>
         <style>
             body {
@@ -100,13 +102,14 @@
             header h1 {
                 font-size: 48px;
                 line-height: 1;
-                font-weight: 600px;
+                font-weight: 600;
+                text-transform: uppercase;
             }
         </style>
     </head>
     <body>
         <header>
-            <div class="content"><h1>EVGENY</h1></div>
+            <div class="content" itemprop="givenName"><h1>Evgeny</h1></div>
         </header>
 
         <div class="content">
@@ -120,7 +123,7 @@
                 </p>
             </div>
             <div class="grid">
-                <a href="mailto:hi@evg.moe" class="card contactCard">
+                <a href="mailto:hi@evg.moe" class="card contactCard" itemprop="email">
                     <div>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -142,6 +145,8 @@
                     href="https://github.com/cyevgeniy"
                     target="_blank"
                     class="card contactCard bg-pink"
+                    itemprop="sameAs"
+                    rel="me"
                 >
                     <div>
                         <svg
@@ -174,6 +179,8 @@
                     href="https://linkedin.com/in/evgchbn"
                     target="_blank"
                     class="card contactCard bg-cyan"
+                    itemprop="sameAs"
+                    rel="me"
                 >
                     <div>
                         <svg
@@ -203,6 +210,8 @@
                     href="https://evg.posthaven.com"
                     target="_blank"
                     class="card contactCard bg-lavender"
+                    itemprop="sameAs"
+                    rel="me"
                 >
                     <div>
                         <svg
