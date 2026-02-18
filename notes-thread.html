@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Notes Thread</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 16px;
+                font-size: 18px;
+                font-family: sans-serif;
+                color: black;
+                background: white;
+            }
+
+            .wrap {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .topBar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 20px;
+                padding-bottom: 12px;
+                border-bottom: 8px solid black;
+            }
+
+            .topBar h1 {
+                margin: 0;
+                font-size: 48px;
+                line-height: 1;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            .back {
+                color: black;
+                text-decoration: none;
+                font-weight: 600;
+                border: 4px solid black;
+                background: #ffccee;
+                padding: 8px 12px;
+            }
+
+            .thread {
+                border: 6px solid black;
+            }
+
+            .post {
+                display: grid;
+                grid-template-columns: 56px 1fr;
+                gap: 12px;
+                padding: 16px;
+                border-bottom: 4px solid black;
+                background: #f2f2f2;
+            }
+
+            .post:last-child {
+                border-bottom: 0;
+            }
+
+            .post:focus {
+                outline: none;
+                box-shadow: inset 0 0 0 4px #ffe91f;
+            }
+
+            .post:target {
+                outline: none;
+                box-shadow: inset 0 0 0 4px black;
+                background: #ffe91f;
+            }
+
+            .rail {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .avatar {
+                width: 38px;
+                height: 38px;
+                border: 3px solid black;
+                border-radius: 0;
+                background: black;
+                color: white;
+                font-size: 15px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .meta {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+
+            .name {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .handle,
+            time {
+                color: #222;
+                font-size: 14px;
+            }
+
+            .text {
+                margin: 0;
+                font-size: 18px;
+                line-height: 1.45;
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+            }
+
+            .text a {
+                color: black;
+                text-decoration-thickness: 2px;
+            }
+
+            .text strong {
+                text-transform: uppercase;
+            }
+
+            .noteLink {
+                margin-left: auto;
+                color: black;
+                text-decoration: none;
+                border: 2px solid black;
+                padding: 0 6px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            @media (max-width: 560px) {
+                body {
+                    margin: 12px;
+                }
+
+                .post {
+                    grid-template-columns: 46px 1fr;
+                    padding: 14px 10px 10px;
+                }
+
+                .topBar {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .topBar h1 {
+                    font-size: 36px;
+                }
+
+                .text {
+                    font-size: 16px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="wrap">
+            <div class="topBar">
+                <h1>Notes Thread</h1>
+                <a class="back" href="index.html">Back to index</a>
+            </div>
+            <section class="thread">
+                <!--
+                    Manual note template (add new notes at the top):
+                    1) Copy this block
+                    2) Increase note number (current max + 1)
+                    3) Update date and text
+
+                    <article class="post" id="note-26" tabindex="0">
+                        <div class="rail">
+                            <div class="avatar">EV</div>
+                        </div>
+                        <div>
+                            <div class="meta">
+                                <span class="name">Evgeny</span>
+                                <span class="handle">@evg.moe</span>
+                                <time datetime="YYYY-MM-DD">YYYY-MM-DD</time>
+                                <a class="noteLink" href="#note-26" aria-label="Anchor link to note-26">#</a>
+                            </div>
+                            <p class="text">Your note text...</p>
+                        </div>
+                    </article>
+                -->
+
+                <article class="post" id="note-25" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2026-02-18">2026-02-18</time>
+                            <a class="noteLink" href="#note-25" aria-label="Anchor link to note-25">#</a>
+                        </div>
+                        <p class="text">
+And here we are.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-24" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-11-06">2025-11-06</time>
+                            <a class="noteLink" href="#note-24" aria-label="Anchor link to note-24">#</a>
+                        </div>
+                        <p class="text">
+Non-blinking cursor in Sublime Text is something beautiful.
+It also has slightly increased height, unlike default
+cursor in VSCode.
+
+Another one proof for me that Sublime Text, generally, is the GOAT.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-23" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-10-21">2025-10-21</time>
+                            <a class="noteLink" href="#note-23" aria-label="Anchor link to note-23">#</a>
+                        </div>
+                        <p class="text">
+I've watched 70 episodes of a series from 2005.
+It's a shame but I'm going to watch it all untill the end.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-22" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-10-08">2025-10-08</time>
+                            <a class="noteLink" href="#note-22" aria-label="Anchor link to note-22">#</a>
+                        </div>
+                        <p class="text">
+One thing I <strong>really</strong>, <strong>really</strong> like in Obsidian is that 
+<strong>it doesn't have the "save" button</strong>. You just write, and that's all.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-21" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-09-30">2025-09-30</time>
+                            <a class="noteLink" href="#note-21" aria-label="Anchor link to note-21">#</a>
+                        </div>
+                        <p class="text">
+Listening: Mike Love - Rain or Shine.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-20" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-09-26">2025-09-26</time>
+                            <a class="noteLink" href="#note-20" aria-label="Anchor link to note-20">#</a>
+                        </div>
+                        <p class="text">
+Never heard about "Analog Horror" before.
+Started digging deeper.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-19" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-09-12">2025-09-12</time>
+                            <a class="noteLink" href="#note-19" aria-label="Anchor link to note-19">#</a>
+                        </div>
+                        <p class="text">
+Yesterday I wrote all my "very important" notes from a mobile notes app
+to a paper notebook, in half a hour. Why? I don't know.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-18" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-09-04">2025-09-04</time>
+                            <a class="noteLink" href="#note-18" aria-label="Anchor link to note-18">#</a>
+                        </div>
+                        <p class="text">
+I noticed that listening to music by albums and not different tracks makes me like that music more.
+
+The last example: I listened Coil's 'Love's secret domain',
+in one take, and I love this album. Previously I listened
+some of the tracks from it, and I can't say that I liked them.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-17" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-28">2025-08-28</time>
+                            <a class="noteLink" href="#note-17" aria-label="Anchor link to note-17">#</a>
+                        </div>
+                        <p class="text">
+Finally listened all Slipknot albums, and, to my surprise, I liked them all.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-16" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-26">2025-08-26</time>
+                            <a class="noteLink" href="#note-16" aria-label="Anchor link to note-16">#</a>
+                        </div>
+                        <p class="text">
+Created a single list of movies I want to watch and it's so huge that
+I'm scared even to choose one.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-15" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-22">2025-08-22</time>
+                            <a class="noteLink" href="#note-15" aria-label="Anchor link to note-15">#</a>
+                        </div>
+                        <p class="text">
+Just found out that if an image has <code>loading="lazy"</code>,
+it won't be requested if it's not visible (<code>display:none</code>).</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-14" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-21">2025-08-21</time>
+                            <a class="noteLink" href="#note-14" aria-label="Anchor link to note-14">#</a>
+                        </div>
+                        <p class="text">
+The track that I can't drop from my head for a three days in a row:
+
+Revenger (OST The Punisher on Sega Mega Drive )</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-13" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-14">2025-08-14</time>
+                            <a class="noteLink" href="#note-13" aria-label="Anchor link to note-13">#</a>
+                        </div>
+                        <p class="text">
+Checked smartphone screen time yesterday - ~ 2.5 hr per day 😱</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-12" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-05">2025-08-05</time>
+                            <a class="noteLink" href="#note-12" aria-label="Anchor link to note-12">#</a>
+                        </div>
+                        <p class="text">
+Ok, ok, I thought enough about this - I'll get a T-Shirt with "Terrifier" print.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-11" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-08-03">2025-08-03</time>
+                            <a class="noteLink" href="#note-11" aria-label="Anchor link to note-11">#</a>
+                        </div>
+                        <p class="text">
+Tomorrow I'll go to theatre. :/</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-10" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-07-24">2025-07-24</time>
+                            <a class="noteLink" href="#note-10" aria-label="Anchor link to note-10">#</a>
+                        </div>
+                        <p class="text">
+It's so hard to try other package managers whey you've been working only npm :/.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-9" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-07-15">2025-07-15</time>
+                            <a class="noteLink" href="#note-9" aria-label="Anchor link to note-9">#</a>
+                        </div>
+                        <p class="text">
+Have stolen a lot of ideas for the personal page from <a href="https://muan.co" target="_blank" rel="noopener noreferrer">muan.co</a>.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-8" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-07-09">2025-07-09</time>
+                            <a class="noteLink" href="#note-8" aria-label="Anchor link to note-8">#</a>
+                        </div>
+                        <p class="text">
+Current thoughts: Cash vs Credit card - 1:0.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-7" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-30">2025-06-30</time>
+                            <a class="noteLink" href="#note-7" aria-label="Anchor link to note-7">#</a>
+                        </div>
+                        <p class="text">
+The next week is going to be a reading week, and no computers.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-6" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-24">2025-06-24</time>
+                            <a class="noteLink" href="#note-6" aria-label="Anchor link to note-6">#</a>
+                        </div>
+                        <p class="text">
+I'm not an EDC freak, but
+now I always carry  a flashlight (olight i3e-eos)
+and a knife (small SanRenMu) with  me.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-5" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-22">2025-06-22</time>
+                            <a class="noteLink" href="#note-5" aria-label="Anchor link to note-5">#</a>
+                        </div>
+                        <p class="text">
+<strong>GOOD DAY TO YOU, SIR</strong>
+
+&gt;Legend has it, that a man by the name of Roger Tellenfield was walking by one of his friends one day. His friend looked over and said "I am having a good day". Roger was having a horrible day so he pulled out a gun stuck it to his own head and said "Well good day to you sir" and shot himself. Since then this phrase has been used by many as a good way to end a fight or a good way to say good bye.
+
+I Read about this legend in a translator's note (Russian) in the "Sea of Poppies" book.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-4" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-22">2025-06-22</time>
+                            <a class="noteLink" href="#note-4" aria-label="Anchor link to note-4">#</a>
+                        </div>
+                        <p class="text">
+On vacation. I even forgot how to type.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-3" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-15">2025-06-15</time>
+                            <a class="noteLink" href="#note-3" aria-label="Anchor link to note-3">#</a>
+                        </div>
+                        <p class="text">
+Watched "The International", very liked it.
+
+I wonder how much there're good movies I would like,
+but still don't know about their existance.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-2" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-14">2025-06-14</time>
+                            <a class="noteLink" href="#note-2" aria-label="Anchor link to note-2">#</a>
+                        </div>
+                        <p class="text">
+I Have a prepared list of movies to watch, but 
+I've spent almost hour to pick one already.</p>
+                    </div>
+                </article>
+
+                <article class="post" id="note-1" tabindex="0">
+                    <div class="rail">
+                        <div class="avatar">EV</div>
+                    </div>
+                    <div>
+                        <div class="meta">
+                            <span class="name">Evgeny</span>
+                            <span class="handle">@evg.moe</span>
+                            <time datetime="2025-06-14">2025-06-14</time>
+                            <a class="noteLink" href="#note-1" aria-label="Anchor link to note-1">#</a>
+                        </div>
+                        <p class="text">
+Bought a Macbook Air M4 16GB/256 two weeks ago.
+
+Since then, I love this device. 
+
+Lightweight, superior battery life,
+performant.</p>
+                    </div>
+                </article>
+            
+            
+            </section>
+        </main>
+    </body>
+</html>
