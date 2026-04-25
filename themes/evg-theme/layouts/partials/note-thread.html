@@ -1,20 +1,31 @@
-{{- $notes := .notes -}}
-{{- $current := .current -}}
-{{- $isThread := gt (len $notes) 1 -}}
+{{- $page := .page -}}
+{{- $parts := .parts -}}
+{{- $currentAnchor := .currentAnchor -}}
+{{- $isThread := gt (len $parts) 1 -}}
 
 <div class="note-thread{{ if $isThread }} is-thread{{ end }}">
-  {{- range $index, $note := $notes -}}
-    {{/* On single-note pages we highlight the note whose URL the reader actually opened. */}}
-    {{- $isCurrent := and $current (eq $note.RelPermalink $current.RelPermalink) -}}
-    <article class="note-entry{{ if gt $index 0 }} is-reply{{ end }}{{ if $isCurrent }} is-current{{ end }}">
+  {{- range $index, $part := $parts -}}
+    {{/* The selected anchor is highlighted on the single-note page and after direct links into the thread. */}}
+    {{- $noteAnchor := index $part "anchor" -}}
+    {{- $isCurrent := and $currentAnchor (eq $noteAnchor $currentAnchor) -}}
+    {{- $postNumber := add $index 1 -}}
+    {{- $noteLink := $page.RelPermalink -}}
+    {{- if $isThread -}}
+      {{- $noteLink = printf "%s#%s" $page.RelPermalink $noteAnchor -}}
+    {{- end -}}
+    <article id="{{ $noteAnchor }}" class="note-entry{{ if gt $index 0 }} is-reply{{ end }}{{ if $isCurrent }} is-current{{ end }}">
       <div class="note-entry-meta">
-        <a class="note-date" href="{{ $note.RelPermalink }}">{{ $note.PublishDate.Format "2006.01.02" }}</a>
+        {{- if $isThread -}}
+        <a class="note-date" href="{{ $noteLink }}">#{{ $postNumber }}</a>
+        {{- else -}}
+        <a class="note-date" href="{{ $noteLink }}">{{ $page.PublishDate.Format "2006.01.02" }}</a>
+        {{- end -}}
         {{- if $isCurrent -}}
-          <span class="note-current-label">Viewing this note</span>
+          <span class="note-current-label">Viewing this post</span>
         {{- end -}}
       </div>
       <div class="note-body">
-        {{ $note.Content }}
+        {{ index $part "content" }}
       </div>
     </article>
   {{- end -}}

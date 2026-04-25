@@ -101,14 +101,14 @@ ul.notes {
 }
 
 .note-thread.is-thread .note-entry {
-	padding-left: 28px;
+	padding-left: 18px;
 }
 
 /* Draw the vertical connector that makes stacked notes read like one conversation. */
 .note-thread.is-thread .note-entry::before {
 	content: "";
 	position: absolute;
-	left: 8px;
+	left: 3px;
 	top: 0;
 	bottom: -18px;
 	width: 2px;
@@ -117,19 +117,6 @@ ul.notes {
 
 .note-thread.is-thread .note-entry:last-child::before {
 	bottom: 12px;
-}
-
-/* Draw the per-note marker on top of the connector line. */
-.note-thread.is-thread .note-entry::after {
-	content: "";
-	position: absolute;
-	left: 3px;
-	top: 8px;
-	width: 12px;
-	height: 12px;
-	border-radius: 999px;
-	background: #fff;
-	border: 2px solid #111;
 }
 
 .note-entry-meta {
@@ -158,6 +145,14 @@ ul.notes {
 	margin-bottom: 18px;
 }
 
+.note-single {
+	margin-top: 18px;
+}
+
+.thread-single-content {
+	margin-bottom: 20px;
+}
+
 .note-body > :first-child {
 	margin-top: 0;
 }
@@ -168,6 +163,14 @@ ul.notes {
 
 /* Highlight the note URL the reader opened while still showing the full thread around it. */
 .note-entry.is-current .note-body {
+	background: #fafafa;
+	border: 1px solid #ececec;
+	border-radius: 10px;
+	padding: 12px 14px;
+}
+
+/* Direct links like /notes/.../#note-... should still call out the selected post. */
+.note-entry:target .note-body {
 	background: #fafafa;
 	border: 1px solid #ececec;
 	border-radius: 10px;

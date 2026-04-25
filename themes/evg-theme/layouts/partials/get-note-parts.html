@@ -1,0 +1,26 @@
+{{- $parts := slice -}}
+{{- $rawContent := .RawContent -}}
+
+{{- if .Params.thread -}}
+  {{/* A threaded note is authored as one file split into post-sized chunks by a markdown hr line. */}}
+  {{- $normalizedContent := replaceRE `\r\n?` "\n" $rawContent -}}
+  {{- $rawParts := split $normalizedContent "\n---\n" -}}
+  {{- range $index, $rawPart := $rawParts -}}
+    {{- $partContent := strings.TrimSpace $rawPart -}}
+    {{- if $partContent -}}
+      {{- $parts = $parts | append (dict
+        "anchor" (printf "note-%s-%d" $.File.TranslationBaseName (add $index 1) | anchorize)
+        "content" ($partContent | $.RenderString)
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (len $parts) 0 -}}
+  {{- $parts = slice (dict
+    "anchor" (printf "note-%s" .File.TranslationBaseName | anchorize)
+    "content" .Content
+  ) -}}
+{{- end -}}
+
+{{- return $parts -}}

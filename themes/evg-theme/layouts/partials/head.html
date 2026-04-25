@@ -1,10 +1,59 @@
 <head>
-  {{ template "_internal/twitter_cards.html" . }}
-  {{ template "_internal/opengraph.html" . }}
+  {{ $canonicalURL := .Permalink }}
+  {{ $socialPage := . }}
+  {{ $socialDescription := "" }}
+  {{ with .Params.description }}
+    {{ $socialDescription = . }}
+  {{ else }}
+    {{ if and .IsPage (eq .Section "notes") }}
+      {{ $parts := partial "get-note-parts.html" . }}
+      {{ if gt (len $parts) 0 }}
+        {{ $socialDescription = index (index $parts 0) "content" | plainify | htmlUnescape | strings.TrimSpace | truncate 200 }}
+      {{ else }}
+        {{ $socialDescription = .Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 200 }}
+      {{ end }}
+    {{ else }}
+      {{ $socialDescription = .Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 200 }}
+    {{ end }}
+  {{ end }}
+  {{ $socialTitle := "" }}
+  {{ with .Params.title }}
+    {{ $socialTitle = . }}
+  {{ else }}
+    {{ with .Title }}
+      {{ $socialTitle = . }}
+    {{ else }}
+      {{ if $socialDescription }}
+        {{ $socialTitle = $socialDescription | truncate 70 }}
+      {{ else }}
+        {{ $socialTitle = .Site.Title }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   <meta charset="utf-8">
   {{ if .Params.description }}
   <meta name="description" content="{{ .Params.description}}">
   {{ end }}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ $socialTitle }}">
+  {{ if $socialDescription }}
+  <meta name="twitter:description" content="{{ $socialDescription }}">
+  {{ end }}
+  <meta property="og:url" content="{{ $canonicalURL }}">
+  <meta property="og:title" content="{{ $socialTitle }}">
+  {{ if $socialDescription }}
+  <meta property="og:description" content="{{ $socialDescription }}">
+  {{ end }}
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="{{ $socialPage.Section }}">
+  {{ with .Date }}
+  <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ end }}
+  {{ with .Lastmod }}
+  <meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ end }}
+  <link rel="canonical" href="{{ $canonicalURL }}">
 
   {{ $css := resources.Get "main.css" | minify }}
   <link href="{{ $css.RelPermalink }}" rel="stylesheet" type="text/css">
@@ -15,5 +64,5 @@
   {{ with .Resources.GetMatch "*.css" }}
     <style>{{ .Content | safeCSS }}</style>
   {{ end }}
-	<title>{{.Params.title}}</title>
+	<title>{{ $socialTitle }}</title>
 </head>

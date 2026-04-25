@@ -2,11 +2,9 @@
         <a href="/">« Home </a> 
 
     <h2> Notes </h2>
-    {{/* Pre-group notes so the list shows one item per thread instead of one item per file. */}}
-    {{ $threads := partial "get-note-threads.html" . }}
     <ul class="notes">
-        {{ range $threads }}
-        {{ partial "note-thread-item.html" . }}
+        {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes" }}
+        {{ partial "note-thread-item.html" .}}
         {{ end }}
     </ul>
 {{ end }}

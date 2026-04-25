@@ -1,38 +1,16 @@
 {{ define "main" }}
         <a href="/notes">« Notes </a> 
+        {{ $parts := partial "get-note-parts.html" . }}
 
-        {{ $threadNotes := slice . }}
-        {{/* Default to the current file path so notes without `thread` still render normally. */}}
-        {{ $threadKey := .File.Path }}
-        {{ with .Params.thread }}
-          {{/* Normalize the key the same way as the list page, otherwise whitespace bugs split threads. */}}
-          {{ $threadKey = strings.TrimSpace (printf "%v" .) }}
-        {{ end }}
-        {{ if .Params.thread }}
-          {{/* Build the full thread so opening any one note URL shows the whole conversation. */}}
-          {{ $threadNotes = slice }}
-          {{ range where .Site.RegularPages "Section" "notes" }}
-            {{ $candidateThreadKey := .File.Path }}
-            {{ with .Params.thread }}
-              {{ $candidateThreadKey = strings.TrimSpace (printf "%v" .) }}
-            {{ end }}
-            {{ if eq $candidateThreadKey $threadKey }}
-              {{ $threadNotes = $threadNotes | append . }}
-            {{ end }}
-          {{ end }}
-          {{/* Keep replies stable by sorting on the note file name. */}}
-          {{ $threadNotes = sort $threadNotes "File.Path" "asc" }}
-        {{ end }}
-
-        {{ if gt (len $threadNotes) 1 }}
+        {{ if gt (len $parts) 1 }}
         <p class="small note-thread-intro">
-            Thread of {{ len $threadNotes }} notes. Every note URL in this thread renders the full conversation.
+            Thread of {{ len $parts }} posts. This URL is the canonical thread page.
         </p>
         {{ end }}
 
         <div class="note-single">
-        {{/* Reuse the same renderer as the list page so both views stay visually consistent. */}}
-        {{ partial "note-thread.html" (dict "notes" $threadNotes "current" .) }}
+        {{/* Threaded notes and normal notes share one renderer; normal notes simply produce one part. */}}
+        {{ partial "note-thread.html" (dict "page" . "parts" $parts "currentAnchor" (.Scratch.Get "currentAnchor")) }}
         </div>
       {{- partial "tags.html" . -}}
 {{ end }}

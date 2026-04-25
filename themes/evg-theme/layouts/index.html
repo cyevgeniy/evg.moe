@@ -1,18 +1,16 @@
 {{ define "main" }}
         {{ .Content }}
         <h2> Recent notes <a href="/notes" class="small">all notes</a></h2>
-        {{/* Homepage notes should mirror the notes section, so we reuse the same grouped thread data. */}}
-        {{ $threads := partial "get-note-threads.html" . }}
         <ul class="notes">
-        {{ range first 2 $threads }}
-                {{ partial "note-thread-item.html" . }}
+        {{ range (first 2 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes")) }}
+                {{ partial "note-thread-item.html" .}}
         {{ end }}
 
         </ul>
        
 
         <h2> Posts </h2>
-        {{ range (where (where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true") "Section" "ne" "notes") }}
+        {{ range (where (where (where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true") "Section" "ne" "notes") "Section" "ne" "threads") }}
         {{ $permalink := .RelPermalink }}
         {{- partial "post-item.html" . -}}
         {{ end }}
