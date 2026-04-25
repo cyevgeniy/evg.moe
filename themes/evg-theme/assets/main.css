@@ -72,14 +72,14 @@ ul.notes {
 	padding: 0;
 }
 
-ul.notes>li {
+.notes > li {
 	list-style: none;
 	margin: 20px 0px;
 	border-bottom: 0.5px solid lightgrey;
 	padding: 20px 0;
 }
 
-ul.notes>li .note-date {
+.note-date {
 	font-size: 14px;
 	color: gray;
 	opacity: 0.6;
@@ -87,6 +87,91 @@ ul.notes>li .note-date {
 
 .note-single {
 	font-size: 20px;
+}
+
+.note-thread {
+	display: grid;
+	gap: 18px;
+}
+
+/* Each note entry becomes an anchor point for the thread timeline line and dot. */
+.note-entry {
+	position: relative;
+	padding-left: 0;
+}
+
+.note-thread.is-thread .note-entry {
+	padding-left: 28px;
+}
+
+/* Draw the vertical connector that makes stacked notes read like one conversation. */
+.note-thread.is-thread .note-entry::before {
+	content: "";
+	position: absolute;
+	left: 8px;
+	top: 0;
+	bottom: -18px;
+	width: 2px;
+	background: #d6d6d6;
+}
+
+.note-thread.is-thread .note-entry:last-child::before {
+	bottom: 12px;
+}
+
+/* Draw the per-note marker on top of the connector line. */
+.note-thread.is-thread .note-entry::after {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 8px;
+	width: 12px;
+	height: 12px;
+	border-radius: 999px;
+	background: #fff;
+	border: 2px solid #111;
+}
+
+.note-entry-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 6px;
+}
+
+.note-current-label {
+	font-size: 13px;
+	color: #555;
+}
+
+.note-thread-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 16px;
+	font-size: 14px;
+	color: #555;
+}
+
+.note-thread-intro {
+	margin-bottom: 18px;
+}
+
+.note-body > :first-child {
+	margin-top: 0;
+}
+
+.note-body > :last-child {
+	margin-bottom: 0;
+}
+
+/* Highlight the note URL the reader opened while still showing the full thread around it. */
+.note-entry.is-current .note-body {
+	background: #fafafa;
+	border: 1px solid #ececec;
+	border-radius: 10px;
+	padding: 12px 14px;
 }
 
 blockquote {

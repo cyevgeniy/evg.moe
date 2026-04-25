@@ -1,0 +1,18 @@
+{{- $thread := . -}}
+{{- $notes := index $thread "notes" -}}
+{{- $head := index $thread "head" -}}
+{{- $last := index $thread "last" -}}
+{{- $isThread := gt (len $notes) 1 -}}
+
+<li class="note-card{{ if $isThread }} is-thread{{ end }}">
+  {{ partial "note-thread.html" (dict "notes" $notes) }}
+
+  {{- if $isThread -}}
+    {{/* The list page points to the first note URL, and that page renders the whole thread. */}}
+    <p class="note-thread-meta">
+      <a href="{{ $head.RelPermalink }}">Open thread</a>
+      <span>{{ len $notes }} posts</span>
+      <span>Last update {{ $last.PublishDate.Format "2006.01.02" }}</span>
+    </p>
+  {{- end -}}
+</li>
