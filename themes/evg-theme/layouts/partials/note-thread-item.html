@@ -1,15 +1,19 @@
 {{- $parts := partial "get-note-parts.html" . -}}
 {{- $isThread := gt (len $parts) 1 -}}
+{{- $previewParts := $parts -}}
+{{- if gt (len $parts) 2 -}}
+  {{- $previewParts = first 2 $parts -}}
+{{- end -}}
 
 <li class="note-card{{ if $isThread }} is-thread{{ end }}">
-  {{ partial "note-thread.html" (dict "page" . "parts" $parts) }}
+  {{ partial "note-thread.html" (dict "page" . "parts" $previewParts) }}
 
   {{- if $isThread -}}
     {{/* Threaded notes are now single canonical pages, so links can go directly to the note URL. */}}
     <p class="note-thread-meta">
       <a href="{{ .RelPermalink }}">Open thread</a>
       <span>{{ len $parts }} posts</span>
-      <span>Last post added {{ .Lastmod.Format "2006.01.02" }}</span>
+      <span>Started {{ .PublishDate.Format "2006.01.02" }}</span>
     </p>
   {{- end -}}
 </li>
