@@ -1,6 +1,6 @@
-baseURL = 'http://evg.moe'
+baseURL = 'https://evg.moe'
 languageCode = 'en-us'
-theme=["evg-theme", "hugo-shortcode-gallery"]
+theme=["evg-theme"]
 [pagination]
     pagerSize=10
 
