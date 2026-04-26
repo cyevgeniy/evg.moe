@@ -1,6 +1,7 @@
 baseURL = 'https://evg.moe'
 languageCode = 'en-us'
 theme=["evg-theme"]
+buildFuture = true
 [pagination]
     pagerSize=10
 
