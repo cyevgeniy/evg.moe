@@ -80,13 +80,9 @@ ul.notes {
 }
 
 .note-date {
-	font-size: 14px;
+	font-size: 17px;
 	color: gray;
 	opacity: 0.6;
-}
-
-.note-single {
-	font-size: 20px;
 }
 
 .note-thread {
@@ -137,7 +133,7 @@ ul.notes {
 	flex-wrap: wrap;
 	gap: 12px;
 	margin-top: 16px;
-	font-size: 14px;
+	font-size: 17px;
 	color: #555;
 }
 
@@ -151,6 +147,10 @@ ul.notes {
 
 .thread-single-content {
 	margin-bottom: 20px;
+}
+
+.note-body {
+	font-size: 20px;
 }
 
 .note-body > :first-child {

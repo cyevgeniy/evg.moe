@@ -1,6 +1,6 @@
 {{ define "main" }}
         {{ .Content }}
-        <h2> Recent notes <a href="/notes" class="small">all notes</a></h2>
+        <!-- <h2> Recent notes <a href="/notes" class="small">all notes</a></h2>
         <ul class="notes">
         {{ range (first 2 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notes")) }}
                 {{ partial "note-thread-item.html" .}}
@@ -13,5 +13,5 @@
         {{ range (where (where (where .Site.RegularPages.ByPublishDate.Reverse "Params.hidden" "ne" "true") "Section" "ne" "notes") "Section" "ne" "threads") }}
         {{ $permalink := .RelPermalink }}
         {{- partial "post-item.html" . -}}
-        {{ end }}
+        {{ end }} -->
 {{ end }}
