@@ -186,3 +186,21 @@ blockquote {
 .small {
 	font-size: 14px;
 }
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 32px;
+}
+
+.pagination-link,
+.pagination-status {
+	font-size: 18px;
+}
+
+.pagination-link.is-disabled {
+	color: gray;
+	opacity: 0.6;
+}

@@ -8,6 +8,7 @@ buildFuture = true
 [params]
     DateForm = "2006.01.02"
     showIcons=false
+    notesPagerSize=200
 
 [[menu.main]]
     name = "Home"
