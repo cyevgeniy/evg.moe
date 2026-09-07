@@ -2,15 +2,6 @@
 layout: raw
 ---
 
-<!-- Hi, I'm Evgeny. **[More info about me](/about)**.
-
-I created [lmst.online](https://lmst.online), a web mastodon client,
-[orasql.ru](https://orasql.ru), a great resource to learn Oracle SQL (in Russian)
-and a few other [projects](/projects).
-
-All posts are listed below, or you may want to navigate by [tags](/tags).
- -->
-
 <!doctype html>
 <html lang="en" itemscope itemtype="https://schema.org/Person">
     <head>
@@ -19,6 +10,13 @@ All posts are listed below, or you may want to navigate by [tags](/tags).
         <meta itemprop="gender" content="male" />
         <link itemprop="url" href="https://evg.moe" />
         <title>Evgeny</title>
+        <script>
+            fetch('https://raw.githubusercontent.com/cyevgeniy/status/refs/heads/main/status.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('status').innerText = text
+            })
+        </script>
         <style>
             body {
                 margin: 16px;
@@ -49,24 +47,24 @@ All posts are listed below, or you may want to navigate by [tags](/tags).
     <body>
         <header>
            <h1>Evgeny</h1>
+           <p id="status"></p>
         </header>
 
-            <p>Now I'm working as a frontend engineer and still love SQL.</p>
+           <!--  <p>Now I'm working as a frontend engineer and still love SQL.</p>
             <p>
                 Previously I worked as a PL/SQL and Delphi engineer.
             </p>
 
-            <div>
+            <div class="email">
                 <a href="mailto:hi@evg.moe" itemprop="email">
                     hi@evg.moe
                 </a>
-            </div>
+            </div> -->
 
-            <div>
+         <!--    <div>
                 <h2> Social networks </h2>
-                <ul class="links">
+                <ul>
                     <li><a href="https://x.com/@evgeny_chbn" target="_blank">X</a></li>
-                    <li><a href="https://bsky.app/profile/evgchbn.bsky.social" target="_blank">Bluesky</a></li>
                 </ul>
 
             <h2> Other links </h2>
@@ -92,6 +90,6 @@ All posts are listed below, or you may want to navigate by [tags](/tags).
                     </a>
                 </li>
             </ul> 
-        </div>
+        </div> -->
     </body>
 </html>
